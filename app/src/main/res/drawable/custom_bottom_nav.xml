@@ -1,0 +1,7 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Khi mục được chọn -->
+    <item android:drawable="@drawable/bottom_nav_indicator"
+        android:state_checked="true"/>
+    <!-- Khi mục không được chọn -->
+    <item android:drawable="@android:color/transparent"/>
+</selector>

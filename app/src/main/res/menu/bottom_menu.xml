@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/trangchu"
+        android:title="Trang Chủ"
+        android:icon="@drawable/ic_home"
+        android:titleTextAppearance="@style/bottomNavTextStyle"
+        android:fontFamily="@font/poppinsmedium"/>
+
+    <item
+        android:id="@+id/bxh"
+        android:title="BXH"
+        android:titleTextAppearance="@style/bottomNavTextStyle"
+        android:icon="@drawable/ic_rank"
+        android:fontFamily="@font/poppinsmedium"/>
+
+    <item
+        android:id="@+id/canhan"
+        android:title="Cá Nhân"
+        android:titleTextAppearance="@style/bottomNavTextStyle"
+        android:icon="@drawable/ic_person"
+        android:fontFamily="@font/poppinsmedium"/>
+</menu>

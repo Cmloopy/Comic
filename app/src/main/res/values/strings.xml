@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Comic</string>
+    <string name="Home">Trang Chủ</string>
+    <string name="BXH">Bảng Xếp Hạng</string>
+    <string name="title1">Truyện Nổi Bật</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text1_2">Truyện Mới Cập Nhật</string>
+    <string name="name_comic">Name Comic</string>
+    <string name="author">Author</string>
+    <string name="chapter_test">Chapter 1234</string>
+    <string name="text1_3">Xem thêm</string>
+    <string name="getAll">Xem tất cả</string>
+    <string name="newUp">Mới Cập Nhật</string>
+</resources>

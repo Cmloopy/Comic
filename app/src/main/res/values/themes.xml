@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Comic" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimaryDark">@color/white</item> -->
+        <item name="android:windowLightStatusBar">true</item> -->
+
+    </style>
+    <style name="bottomNavTextStyle">
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="RoundedImageView">
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="RoundedIcon">
+        <item name="cornerSize">14dp</item>
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+    </style>
+    <style name="Theme.Comic" parent="Base.Theme.Comic" />
+</resources>

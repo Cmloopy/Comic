@@ -1,0 +1,23 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Xóa nền trong suốt vì không cần -->
+    <item android:gravity="top|left">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/> <!-- Màu thanh ngang -->
+            <size android:height="4dp" android:width="5dp"/> <!-- Độ rộng thanh -->
+        </shape>
+    </item>
+    <!-- Thanh ngang chỉ hiện khi item được chọn -->
+    <item android:gravity="top|center">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/btn"/> <!-- Màu thanh ngang -->
+            <size android:height="4dp" android:width="45dp"/> <!-- Độ rộng thanh -->
+            <corners android:radius="2dp"/> <!-- Bo góc nhẹ -->
+        </shape>
+    </item>
+    <item android:gravity="top|right">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/> <!-- Màu thanh ngang -->
+            <size android:height="4dp" android:width="5dp"/> <!-- Độ rộng thanh -->
+        </shape>
+    </item>
+</layer-list>
