@@ -118,6 +118,6 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        handler.postDelayed(runnable,3000)
+        handler.postDelayed(runnable,3500)
     }
 }
