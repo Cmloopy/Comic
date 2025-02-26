@@ -105,6 +105,7 @@
                 android:text="@string/text1_3"
                 android:clickable="true"
                 android:focusable="true"
+                android:textStyle="bold"
                 android:layout_gravity="center|top"
                 android:textColor="@color/btn"
                 android:layout_marginStart="140dp"
@@ -127,7 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:paddingTop="2dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -150,9 +151,10 @@
                 android:text="@string/text1_3"
                 android:clickable="true"
                 android:focusable="true"
+                android:textStyle="bold"
                 android:layout_gravity="center|top"
                 android:textColor="@color/btn"
-                android:layout_marginStart="125dp"
+                android:layout_marginStart="123dp"
                 android:fontFamily="@font/poppinsregular"
                 android:textSize="13sp"/>
 

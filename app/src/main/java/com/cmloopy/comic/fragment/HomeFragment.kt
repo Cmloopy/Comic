@@ -78,10 +78,12 @@ class HomeFragment : Fragment() {
     private fun setUpNewestUpdateRecycle() {
         binding.rclListMCN.layoutManager = LinearLayoutManager(requireContext())
         binding.rclListMCN.adapter = HomeListComicAdapter(hotComic)
+
     }
 
     private fun setUpFinishRecycle() {
-
+        binding.rclListHT.layoutManager = LinearLayoutManager(requireContext())
+        binding.rclListHT.adapter = HomeListComicAdapter(hotComic)
     }
 
     private val runnable = Runnable {

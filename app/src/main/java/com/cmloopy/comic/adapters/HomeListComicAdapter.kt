@@ -1,5 +1,6 @@
 package com.cmloopy.comic.adapters
 
+import android.content.Intent
 import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cmloopy.comic.R
 import com.cmloopy.comic.models.Comic
+import com.cmloopy.comic.view.ComicDetailActivity
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
 
@@ -36,6 +38,12 @@ class HomeListComicAdapter(private val itemList: List<Comic>): RecyclerView.Adap
         holder.new.setText(itemList[position].newChapter)
         if(itemList[position].status == 1){
             holder.status.visibility = View.VISIBLE
+        }
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context,ComicDetailActivity::class.java)
+            intent.putExtra("comic", itemList[position].idComic)
+            context.startActivity(intent)
         }
     }
 }

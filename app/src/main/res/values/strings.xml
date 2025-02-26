@@ -15,4 +15,11 @@
     <string name="finishComic">Truyện Đã Hoàn Thành</string>
     <string name="finish">Full</string>
     <string name="titleFinish">Đã Hoàn Thành</string>
+    <string name="comicNameEx">Thiết Kiếm Sĩ Hồi Quy</string>
+    <string name="authorVN">Tác giả</string>
+    <string name="updating">Đang Cập Nhật</string>
+    <string name="status">Tình Trạng</string>
+    <string name="likes">Lượt Thích</string>
+    <string name="follow">Lượt Theo Dõi</string>
+    <string name="view">Lượt Xem</string>
 </resources>

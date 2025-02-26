@@ -9,10 +9,11 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/btn_backfFrgHome"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:padding="5dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="17dp"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +26,7 @@
         android:textColor="@color/text1"
         android:textSize="20sp"
         android:layout_marginTop="18dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginRight="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_backfFrgHome"
         app:layout_constraintTop_toTopOf="parent" />

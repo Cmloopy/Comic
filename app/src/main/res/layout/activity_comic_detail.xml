@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/comicDetailAc"
@@ -7,4 +7,201 @@
     android:layout_height="match_parent"
     tools:context=".view.ComicDetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btn_backPrevious"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_back"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_anhbia"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:src="@drawable/test2"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/RoundedImageView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_backPrevious"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_namecomic"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/comicNameEx"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/poppinssemibold"
+            android:textColor="@color/text1"
+            app:layout_constraintTop_toBottomOf="@+id/img_anhbia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/ln1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_namecomic">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_marginStart="15dp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_person2"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/text1_1"
+                android:text="@string/authorVN" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtAuth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/updating"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="14sp"
+                android:textColor="@color/text1_1"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ln2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ln1">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_marginStart="15dp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_status"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="14sp"
+                android:textColor="@color/text1_1"
+                android:text="@string/status" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtSta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/updating"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="14sp"
+                android:textColor="@color/text1_1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ln2">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_marginStart="15dp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_like"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="14sp"
+                android:textColor="@color/text1_1"
+                android:text="@string/likes" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12312"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="14sp"
+                android:textColor="@color/text1_1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ln3">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_marginStart="15dp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_follow"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="14sp"
+                android:textColor="@color/text1_1"
+                android:text="@string/follow" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtFollow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="121"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="14sp"
+                android:textColor="@color/text1_1"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ln5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ln4">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_marginStart="15dp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_view"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="14sp"
+                android:textColor="@color/text1_1"
+                android:text="@string/view" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100000"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="14sp"
+                android:textColor="@color/text1_1"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

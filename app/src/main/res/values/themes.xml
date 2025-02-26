@@ -13,6 +13,10 @@
         <item name="cornerSize">20dp</item>
     </style>
 
+    <style name="RoundedImageView2">
+        <item name="cornerSize">10dp</item>
+    </style>
+
     <style name="RoundedIcon">
         <item name="cornerSize">14dp</item>
     </style>
