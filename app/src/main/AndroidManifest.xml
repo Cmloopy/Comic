@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Comic"
         tools:targetApi="31">
         <activity
+            android:name=".view.ComicDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.AllFinishComicAcitvity"
             android:exported="false" />
         <activity

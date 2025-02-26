@@ -18,6 +18,7 @@ import com.cmloopy.comic.adapters.ImageSliderAdapter
 import com.cmloopy.comic.adapters.HomeListComicAdapter
 import com.cmloopy.comic.databinding.FragmentHomeBinding
 import com.cmloopy.comic.models.Comic
+import com.cmloopy.comic.view.AllFinishComicAcitvity
 import com.cmloopy.comic.view.AllNewUpdateActivity
 
 class HomeFragment : Fragment() {
@@ -58,7 +59,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
         binding.btnXemthem2.setOnClickListener {
-            val intent = Intent(requireContext(), AllNewUpdateActivity::class.java)
+            val intent = Intent(requireContext(), AllFinishComicAcitvity::class.java)
             //Them putExtra neu can gui data
             startActivity(intent)
         }
