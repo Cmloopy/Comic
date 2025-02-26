@@ -7,7 +7,7 @@ class Comic (var idComic: Int, var nameComic: String,
              var imageUrl: String, var urlComic: String,
              //test
              var img: Int,
-             var likes: Int, var sc: Int,
+             var likes: Int, var sc: Int, var status: Int,
              //var createdAt: Timestamp,
              //var updatedAt: Timestamp,
              var nameAuthor: String,

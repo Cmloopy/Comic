@@ -15,11 +15,10 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.ImageSliderAdapter
-import com.cmloopy.comic.adapters.NewUpdateComicAdapter
+import com.cmloopy.comic.adapters.HomeListComicAdapter
 import com.cmloopy.comic.databinding.FragmentHomeBinding
 import com.cmloopy.comic.models.Comic
 import com.cmloopy.comic.view.AllNewUpdateActivity
-import kotlin.math.abs
 
 class HomeFragment : Fragment() {
     private lateinit var _binding: FragmentHomeBinding
@@ -43,6 +42,8 @@ class HomeFragment : Fragment() {
         //List truyện mới cập nhật
         setUpNewestUpdateRecycle()
 
+        //List truyen hoan thanh
+        setUpFinishRecycle()
 
         //Click xem them
         btnHomeFragmentOnClick()
@@ -75,7 +76,11 @@ class HomeFragment : Fragment() {
 
     private fun setUpNewestUpdateRecycle() {
         binding.rclListMCN.layoutManager = LinearLayoutManager(requireContext())
-        binding.rclListMCN.adapter = NewUpdateComicAdapter(hotComic)
+        binding.rclListMCN.adapter = HomeListComicAdapter(hotComic)
+    }
+
+    private fun setUpFinishRecycle() {
+
     }
 
     private val runnable = Runnable {
@@ -91,18 +96,16 @@ class HomeFragment : Fragment() {
     private fun initSlider() {
         handler = Handler(Looper.myLooper()!!)
 
-        hotComic.add(Comic(1,"Name Comic 1","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 2","Check", 1200, "test", "test", R.drawable.test2, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 3","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 4","Check", 1200, "test", "test", R.drawable.test2, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 5","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 6","Check", 1200, "test", "test", R.drawable.test2, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.test2, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.test2, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.test2, 12, 12, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.test2, 12, 12, "Author1", 1, 1, "Chapter12"))
-
+        hotComic.add(Comic(1,"Name Comic 1","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12, 0, "Author 1", 1, 1, "Chapter 12"))
+        hotComic.add(Comic(1,"Name Comic 2","Check", 1200, "test", "test", R.drawable.test2, 12, 12, 0, "Author 1", 1, 1, "Chapter 12"))
+        hotComic.add(Comic(1,"Name Comic 3","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1,  "Author 1", 1, 1, "Chapter 12"))
+        hotComic.add(Comic(1,"Name Comic 4","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author 1", 1, 1, "Chapter 12"))
+        hotComic.add(Comic(1,"Name Comic 5","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
+        hotComic.add(Comic(1,"Name Comic 6","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
+        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
+        hotComic.add(Comic(1,"Name Comic 8","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author 1", 1, 1, "Chapter 12"))
+        hotComic.add(Comic(1,"Name Comic 9","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
+        hotComic.add(Comic(1,"Name Comic 10","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
         val adapter = ImageSliderAdapter(hotComic, binding.vpgSlideimg)
         binding.vpgSlideimg.adapter = adapter
         binding.vpgSlideimg.offscreenPageLimit = 2

@@ -12,4 +12,6 @@
     <string name="text1_3">Xem thêm</string>
     <string name="getAll">Xem tất cả</string>
     <string name="newUp">Mới Cập Nhật</string>
+    <string name="finishComic">Truyện Đã Hoàn Thành</string>
+    <string name="finish">Full</string>
 </resources>

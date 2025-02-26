@@ -56,4 +56,19 @@
         android:background="@drawable/material_textview_corner"
         android:layout_marginStart="120dp"
         android:layout_marginTop="55dp" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/finish"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/finish"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:background="@drawable/material_textview_corner"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="55dp" />
 </FrameLayout>
