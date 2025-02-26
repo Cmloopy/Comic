@@ -9,13 +9,14 @@ import com.cmloopy.comic.models.Comic
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
 
-class AllNewUpdateComicAdapter(private val itemList: ArrayList<Comic>): RecyclerView.Adapter<AllNewUpdateComicAdapter.ItemViewHolder>(){
+class AllNewFullComicAdapter(private val itemList: ArrayList<Comic>): RecyclerView.Adapter<AllNewFullComicAdapter.ItemViewHolder>(){
 
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val img_bia = itemView.findViewById<ShapeableImageView>(R.id.img_bia)
         val name_cm = itemView.findViewById<MaterialTextView>(R.id.txt_namecm)
         val name_author = itemView.findViewById<MaterialTextView>(R.id.txt_authorcm)
         val new = itemView.findViewById<MaterialTextView>(R.id.txt_newest_chapter)
+        val status = itemView.findViewById<MaterialTextView>(R.id.txt_status)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -33,5 +34,8 @@ class AllNewUpdateComicAdapter(private val itemList: ArrayList<Comic>): Recycler
         holder.name_cm.setText(itemList[position].nameComic)
         holder.name_author.setText(itemList[position].nameAuthor)
         holder.new.setText(itemList[position].newChapter)
+        if(itemList[position].status == 1){
+            holder.status.visibility = View.VISIBLE
+        }
     }
 }
