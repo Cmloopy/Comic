@@ -14,7 +14,7 @@ class RankFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRankBinding.inflate(inflater, container, false)
 
         return binding.root

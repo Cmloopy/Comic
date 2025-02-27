@@ -13,9 +13,9 @@ import com.google.android.material.textview.MaterialTextView
 class ImageSliderAdapter(private var hotComic: ArrayList<Comic>, private var viewpager2: ViewPager2)
     : RecyclerView.Adapter<ImageSliderAdapter.ImageViewHolder>() {
     class ImageViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val bia = itemView.findViewById<ShapeableImageView>(R.id.imgBia)
-        val tt = itemView.findViewById<MaterialTextView>(R.id.txtNameComic)
-        val aut = itemView.findViewById<MaterialTextView>(R.id.txtAuthor)
+        val bia = itemView.findViewById<ShapeableImageView>(R.id.imgBia)!!
+        val tt = itemView.findViewById<MaterialTextView>(R.id.txtNameComic)!!
+        val aut = itemView.findViewById<MaterialTextView>(R.id.txtAuthor)!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {

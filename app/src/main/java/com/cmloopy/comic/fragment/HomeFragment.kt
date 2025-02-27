@@ -20,6 +20,7 @@ import com.cmloopy.comic.databinding.FragmentHomeBinding
 import com.cmloopy.comic.models.Comic
 import com.cmloopy.comic.view.AllFinishComicAcitvity
 import com.cmloopy.comic.view.AllNewUpdateActivity
+import com.cmloopy.comic.view.CategoryActivity
 import com.cmloopy.comic.view.SearchActivity
 
 class HomeFragment : Fragment() {
@@ -31,7 +32,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         //Slider truyện đầu trang chủ
@@ -70,7 +71,9 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
         binding.btnCate.setOnClickListener {
-
+            val intent = Intent(requireContext(), CategoryActivity::class.java)
+            //putExtra nếu muốn đẩy Data
+            startActivity(intent)
         }
     }
 
@@ -96,7 +99,7 @@ class HomeFragment : Fragment() {
     }
 
     private val runnable = Runnable {
-        binding.vpgSlideimg.currentItem = binding.vpgSlideimg.currentItem + 1
+        binding.vpgSlideimg.currentItem += 1
     }
 
     private fun setUpSlider() {
