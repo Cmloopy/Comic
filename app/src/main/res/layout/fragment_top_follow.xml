@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.TopFollowFragment">
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_tt3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="top follow"
-        android:textSize="40dp"
-        android:layout_gravity="center"/>
-</FrameLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="14sp"
+        android:fontFamily="@font/poppinsmedium"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/text1_1"
+        android:text="Top theo dõi nhiều nhất!!"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:src="@drawable/follow"
+        app:layout_constraintStart_toEndOf="@+id/txt_tt3"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="3dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:src="@drawable/follow"
+        app:layout_constraintStart_toEndOf="@+id/txt_tt3"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="28dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:src="@drawable/follow"
+        app:layout_constraintStart_toEndOf="@+id/txt_tt3"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="55dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcl_listTopFollow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tt3"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
