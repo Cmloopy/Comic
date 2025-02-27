@@ -40,12 +40,7 @@ class ImageSliderAdapter(private var hotComic: ArrayList<Comic>, private var vie
         if (position == hotComic.size-1){
             viewpager2.post(runnable)
         }
-        holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
-            val intent = Intent(context, ComicDetailActivity::class.java)
-            intent.putExtra("comic", hotComic[position].idComic)
-            context.startActivity(intent)
-        }
+
     }
 
     //Add lại list để tạo hiệu ứng cuộn vô hạn
