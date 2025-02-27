@@ -4,13 +4,19 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimaryDark">@color/white</item> -->
         <item name="android:windowLightStatusBar">true</item> -->
-
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
     <style name="bottomNavTextStyle">
         <item name="android:textSize">11sp</item>
     </style>
     <style name="RoundedImageView">
         <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="CustomTabText">
+        <item name="android:textAllCaps">false</item> <!-- Chữ viết hoa -->
+        <item name="android:textSize">12sp</item> <!-- Kích thước chữ -->
+        <item name="android:fontFamily">@font/poppinsmedium</item> <!-- Font chữ -->
     </style>
 
     <style name="RoundedImageView2">

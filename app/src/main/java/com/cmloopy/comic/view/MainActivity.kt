@@ -18,16 +18,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = MainViewPagerAdpater(this)
         binding.vpgMain.adapter = adapter
 
-        // Điều khiển BottomNavigationView khi vuốt ViewPager2
-        binding.vpgMain.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                when (position) {
-                    0 -> binding.bottomNav.selectedItemId = R.id.trangchu
-                    1 -> binding.bottomNav.selectedItemId = R.id.bxh
-                    2 -> binding.bottomNav.selectedItemId = R.id.canhan
-                }
-            }
-        })
+        binding.vpgMain.isUserInputEnabled = false
 
         //Xử lý sự kiện khi click trên BottomNav
         binding.bottomNav.setOnItemSelectedListener { item ->

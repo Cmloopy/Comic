@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Khi tab được chọn -->
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/btn"/> <!-- Màu nền khi chọn -->
+            <corners android:radius="50dp"/> <!-- Bo góc -->
+            <padding android:left="10dp" android:right="10dp"/>
+        </shape>
+    </item>
+
+    <!-- Khi tab không được chọn -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/> <!-- Nền trong suốt khi không chọn -->
+            <corners android:radius="50dp"/> <!-- Bo góc -->
+            <padding android:left="10dp" android:right="10dp"/>
+        </shape>
+    </item>
+</selector>
+
