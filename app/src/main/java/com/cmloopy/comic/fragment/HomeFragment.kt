@@ -20,6 +20,7 @@ import com.cmloopy.comic.databinding.FragmentHomeBinding
 import com.cmloopy.comic.models.Comic
 import com.cmloopy.comic.view.AllFinishComicAcitvity
 import com.cmloopy.comic.view.AllNewUpdateActivity
+import com.cmloopy.comic.view.SearchActivity
 
 class HomeFragment : Fragment() {
     private lateinit var _binding: FragmentHomeBinding
@@ -46,7 +47,7 @@ class HomeFragment : Fragment() {
         //List truyen hoan thanh
         setUpFinishRecycle()
 
-        //Click xem them
+        //Click btn
         btnHomeFragmentOnClick()
 
         return binding.root
@@ -62,6 +63,14 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), AllFinishComicAcitvity::class.java)
             //Them putExtra neu can gui data
             startActivity(intent)
+        }
+        binding.btnSrc.setOnClickListener {
+            val intent = Intent(requireContext(), SearchActivity::class.java)
+            //putExtra nếu muốn send Data
+            startActivity(intent)
+        }
+        binding.btnCate.setOnClickListener {
+
         }
     }
 
@@ -111,7 +120,7 @@ class HomeFragment : Fragment() {
         hotComic.add(Comic(1,"Name Comic 10","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
         val adapter = ImageSliderAdapter(hotComic, binding.vpgSlideimg)
         binding.vpgSlideimg.adapter = adapter
-        binding.vpgSlideimg.offscreenPageLimit = 2
+        binding.vpgSlideimg.offscreenPageLimit = 3
         binding.vpgSlideimg.clipToPadding = false
         binding.vpgSlideimg.clipChildren = false
         binding.vpgSlideimg.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER

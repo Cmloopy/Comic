@@ -22,4 +22,6 @@
     <string name="likes">Lượt Thích</string>
     <string name="follow">Lượt Theo Dõi</string>
     <string name="view">Lượt Xem</string>
+    <string name="search">Tìm Kiếm</string>
+    <string name="cate">Thể Loại</string>
 </resources>

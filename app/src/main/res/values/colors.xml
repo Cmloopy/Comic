@@ -9,6 +9,7 @@
     <color name="text1_1">#333333</color>
     <color name="frg">#FFEBF0</color>
     <color name="text2">#939393</color>
-    <color name="finish">#2B9C30</color>
+    <color name="light_gray">#E9E9EF</color>
+    <color name="finish">#19AA19</color>
 
 </resources>
