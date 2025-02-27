@@ -1,7 +1,6 @@
 package com.cmloopy.comic.adapters
 
 import android.content.Intent
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
