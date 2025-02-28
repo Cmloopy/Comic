@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="14sp"
         android:fontFamily="@font/poppinsmedium"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="3dp"
         android:layout_marginStart="20dp"
         android:textColor="@color/text1_1"
         android:text="Top lượt thích cao nhất!"/>
@@ -24,7 +24,7 @@
         android:layout_height="21dp"
         android:src="@drawable/like"
         app:layout_constraintStart_toEndOf="@+id/txt_tt2"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="1dp"
         android:layout_marginStart="3dp"
         app:layout_constraintTop_toTopOf="parent"/>
     <com.google.android.material.imageview.ShapeableImageView
@@ -32,7 +32,7 @@
         android:layout_height="21dp"
         android:src="@drawable/like"
         app:layout_constraintStart_toEndOf="@+id/txt_tt2"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="1dp"
         android:layout_marginStart="28dp"
         app:layout_constraintTop_toTopOf="parent"/>
     <com.google.android.material.imageview.ShapeableImageView
@@ -40,7 +40,7 @@
         android:layout_height="21dp"
         android:src="@drawable/like"
         app:layout_constraintStart_toEndOf="@+id/txt_tt2"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="1dp"
         android:layout_marginStart="55dp"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -48,7 +48,7 @@
         android:id="@+id/rcl_listTopLike"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@+id/txt_tt2"/>

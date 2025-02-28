@@ -43,12 +43,12 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/btn_cate"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="1dp"
-                android:src="@drawable/ic_category"
+                android:src="@drawable/category"
                 android:tint="@color/text1" />
         </LinearLayout>
 
@@ -64,6 +64,15 @@
             android:textColor="@color/text1_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:src="@drawable/grow"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintStart_toEndOf="@+id/materialTextView"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vpg_slideimg"
@@ -98,6 +107,13 @@
                 android:textColor="@color/text1_1"
                 android:textSize="14sp" />
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/neww"/>
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/btn_xemthem1"
                 android:layout_width="wrap_content"
@@ -108,7 +124,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center|top"
                 android:textColor="@color/btn"
-                android:layout_marginStart="140dp"
+                android:layout_marginStart="120dp"
                 android:fontFamily="@font/poppinsregular"
                 android:textSize="13sp"/>
 
@@ -144,6 +160,13 @@
                 android:textColor="@color/text1_1"
                 android:textSize="14sp" />
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/full"/>
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/btn_xemthem2"
                 android:layout_width="wrap_content"
@@ -154,7 +177,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center|top"
                 android:textColor="@color/btn"
-                android:layout_marginStart="123dp"
+                android:layout_marginStart="100dp"
                 android:fontFamily="@font/poppinsregular"
                 android:textSize="13sp"/>
 

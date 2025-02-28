@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:paddingStart="5dp"
+    android:paddingEnd="10dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_top"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/t1"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_marginStart="40dp"
+        android:id="@+id/img_bia_top"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:scaleType="fitXY"
+        app:shapeAppearanceOverlay="@style/RoundedImageView"
+        android:src="@drawable/test2"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_namecm_top"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/name_comic"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:fontFamily="@font/poppinsmedium"
+        android:textColor="@color/text1"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="140dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:src="@drawable/fire_black"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="28dp"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_sl_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="29dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:text="1000"
+        android:textColor="@color/text1_1"
+        android:textSize="12sp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_authorcm_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/text_icon_nav"
+        android:layout_marginStart="140dp"
+        android:textSize="11sp"
+        android:drawablePadding="2dp"
+        app:drawableTint="@color/text2"
+        android:drawableStart="@drawable/ic_person"
+        android:layout_marginTop="54dp"/>
+
+</FrameLayout>
