@@ -33,10 +33,10 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/btn_src"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="165dp"
+                android:layout_marginStart="163dp"
                 android:layout_marginTop="1dp"
                 android:src="@drawable/ic_search"
                 android:tint="@color/text1" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="btn">#54BAB9</color>
+    <color name="btn">#FF526E</color>
     <color name="orange">#FF6905</color>
     <color name="white">#FFFFFFFF</color>
     <color name="ic_bottom_nav">#DCDCDC</color>

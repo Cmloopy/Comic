@@ -23,4 +23,6 @@
     <string name="search">Tìm Kiếm</string>
     <string name="cate">Thể Loại</string>
     <string name="top">Bảng Xếp Hạng</string>
+    <string name="hello">Xin chào!!</string>
+    <string name="name_user">Bấm để đăng nhập!</string>
 </resources>

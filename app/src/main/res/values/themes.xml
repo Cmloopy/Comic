@@ -13,6 +13,10 @@
         <item name="cornerSize">20dp</item>
     </style>
 
+    <style name="RoundedImageViewPerson">
+        <item name="cornerSize">40dp</item>
+    </style>
+
     <style name="CustomTabText">
         <item name="android:textAllCaps">false</item> <!-- Chữ viết hoa -->
         <item name="android:textSize">12sp</item> <!-- Kích thước chữ -->
