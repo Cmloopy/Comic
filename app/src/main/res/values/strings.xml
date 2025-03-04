@@ -25,4 +25,9 @@
     <string name="top">Bảng Xếp Hạng</string>
     <string name="hello">Xin chào!!</string>
     <string name="name_user">Bấm để đăng nhập!</string>
+    <string name="dd">Điểm Danh</string>
+    <string name="chu_i_ng_y_c">Chuỗi ngày đọc</string>
+    <string name="chap_c">Chap đã đọc</string>
+    <string name="try_n_ang_theo_d_i">Truyện đang theo dõi</string>
+    <string name="l_ch_s_c_truy_n">Lịch sử đọc truyện</string>
 </resources>

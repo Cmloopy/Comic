@@ -1,5 +1,6 @@
 package com.cmloopy.comic.fragment
 
+import Comic
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -17,7 +18,6 @@ import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.ImageSliderAdapter
 import com.cmloopy.comic.adapters.HomeListComicAdapter
 import com.cmloopy.comic.databinding.FragmentHomeBinding
-import com.cmloopy.comic.models.Comic
 import com.cmloopy.comic.view.AllFinishComicAcitvity
 import com.cmloopy.comic.view.AllNewUpdateActivity
 import com.cmloopy.comic.view.CategoryActivity
@@ -111,16 +111,7 @@ class HomeFragment : Fragment() {
     private fun initSlider() {
         handler = Handler(Looper.myLooper()!!)
 
-        hotComic.add(Comic(1,"Name Comic 1","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12, 0, "Author 1", 1, 1, "Chapter 12"))
-        hotComic.add(Comic(1,"Name Comic 2","Check", 1200, "test", "test", R.drawable.test2, 12, 12, 0, "Author 1", 1, 1, "Chapter 12"))
-        hotComic.add(Comic(1,"Name Comic 3","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1,  "Author 1", 1, 1, "Chapter 12"))
-        hotComic.add(Comic(1,"Name Comic 4","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author 1", 1, 1, "Chapter 12"))
-        hotComic.add(Comic(1,"Name Comic 5","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
-        hotComic.add(Comic(1,"Name Comic 6","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
-        hotComic.add(Comic(1,"Name Comic 8","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author 1", 1, 1, "Chapter 12"))
-        hotComic.add(Comic(1,"Name Comic 9","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
-        hotComic.add(Comic(1,"Name Comic 10","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
+
         val adapter = ImageSliderAdapter(hotComic, binding.vpgSlideimg)
         binding.vpgSlideimg.adapter = adapter
         binding.vpgSlideimg.offscreenPageLimit = 3

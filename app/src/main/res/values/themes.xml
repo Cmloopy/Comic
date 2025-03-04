@@ -14,7 +14,7 @@
     </style>
 
     <style name="RoundedImageViewPerson">
-        <item name="cornerSize">40dp</item>
+        <item name="cornerSize">30dp</item>
     </style>
 
     <style name="CustomTabText">
