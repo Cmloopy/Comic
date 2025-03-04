@@ -6,10 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.TopAdapter
 import com.cmloopy.comic.databinding.FragmentTopFollowBinding
 import Comic
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import com.cmloopy.comic.data.RetrofitClient
+import com.cmloopy.comic.data.api.ComicApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class TopFollowFragment : Fragment() {
     private lateinit var _binding : FragmentTopFollowBinding
@@ -21,10 +27,19 @@ class TopFollowFragment : Fragment() {
     ): View {
         _binding = FragmentTopFollowBinding.inflate(inflater,container,false)
 
-        val list: ArrayList<Comic> = arrayListOf()
-
-        binding.rclListTopFollow.layoutManager = LinearLayoutManager(requireContext())
-        binding.rclListTopFollow.adapter = TopAdapter(list,2)
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val apiService = RetrofitClient.instance.create(ComicApi::class.java)
+                val topView = withContext(Dispatchers.IO) {apiService.getComicHot()}
+                binding.rclListTopFollow.layoutManager = LinearLayoutManager(requireContext())
+                binding.rclListTopFollow.adapter = TopAdapter(topView,2)
+            }
+            catch (e:Exception){
+                context?.let {
+                    Toast.makeText(it, "Lỗi API: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
         return binding.root
     }

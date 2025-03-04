@@ -10,9 +10,11 @@ import Comic
 import com.cmloopy.comic.view.ComicDetailActivity
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
+import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 
 class TopAdapter(private val itemList: ArrayList<Comic>, private val choose: Int): RecyclerView.Adapter<TopAdapter.ItemViewHolder>() {
+    private val storageReference = FirebaseStorage.getInstance().reference
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val topbxh = itemView.findViewById<ShapeableImageView>(R.id.img_top)
         val bia = itemView.findViewById<ShapeableImageView>(R.id.img_bia_top)
@@ -42,9 +44,16 @@ class TopAdapter(private val itemList: ArrayList<Comic>, private val choose: Int
                 else -> R.drawable.t7
             }
         )
-        Picasso.get()
-            .load(itemList[position].imageUrl)
-            .into(holder.bia)
+        val imageRef = storageReference.child(itemList[position].imageUrl)
+        imageRef.downloadUrl.addOnSuccessListener { uri ->
+            Picasso.get()
+                .load(uri)
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.warning)
+                .into(holder.bia)
+        }.addOnFailureListener { exception ->
+            // Xử lý khi có lỗi xảy ra trong quá trình tải ảnh
+        }
         holder.namecm.text = itemList[position].nameComic
         when(choose){
             0 -> holder.sl.text = itemList[position].view.toString()

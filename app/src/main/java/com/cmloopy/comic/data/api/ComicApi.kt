@@ -7,6 +7,8 @@ import retrofit2.http.GET
 interface ComicApi {
     @GET("comic/hot")
     suspend fun getComicHot():ArrayList<Comic>
+    @GET("comic/like")
+    suspend fun getComicLike():ArrayList<Comic>
     @GET("comic/finish")
     suspend fun getComicHT(): ArrayList<Comic>
     @GET("comic/allfinish")
