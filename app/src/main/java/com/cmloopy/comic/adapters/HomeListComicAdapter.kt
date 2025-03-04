@@ -52,7 +52,7 @@ class HomeListComicAdapter(private val itemList: ArrayList<Comic>): RecyclerView
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context,ComicDetailActivity::class.java)
-            intent.putExtra("comic", itemList[position].idComic)
+            intent.putExtra("idComic", itemList[position].idComic)
             context.startActivity(intent)
         }
     }

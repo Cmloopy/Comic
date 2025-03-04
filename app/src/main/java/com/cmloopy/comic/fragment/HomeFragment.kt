@@ -61,9 +61,6 @@ class HomeFragment : Fragment() {
                 setUpNewestUpdateRecycle(newComic)
                 setUpFinishRecycle(fullComic)
 
-                context?.let {
-                    Toast.makeText(it, "ok", Toast.LENGTH_SHORT).show()
-                }
             } catch (e: Exception) {
                 context?.let {
                     Toast.makeText(it, "Lỗi API: ${e.message}", Toast.LENGTH_SHORT).show()
