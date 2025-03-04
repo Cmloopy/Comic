@@ -32,8 +32,8 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/img_anhbia"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/test2"
@@ -65,9 +65,9 @@
                 app:layout_constraintTop_toBottomOf="@id/txt_namecomic">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
                     android:orientation="vertical">
 
                     <com.google.android.material.textview.MaterialTextView
@@ -86,14 +86,15 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsmedium"
                         android:text="@string/l_t_like"
+                        android:layout_gravity="center"
                         android:textColor="@color/text2"
                         android:textSize="10sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="85dp"
+                    android:layout_marginStart="15dp"
                     android:orientation="vertical">
 
                     <com.google.android.material.textview.MaterialTextView
@@ -112,15 +113,16 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsmedium"
                         android:text="@string/hot"
+                        android:layout_gravity="center"
                         android:textColor="@color/text2"
                         android:textSize="10sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="75dp"
+                    android:layout_marginStart="15dp"
                     android:orientation="vertical">
 
                     <com.google.android.material.textview.MaterialTextView
@@ -137,6 +139,7 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/poppinsmedium"
                         android:text="@string/l_t_theo_d_i"
                         android:textColor="@color/text2"
@@ -146,8 +149,9 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:id="@+id/rcl_category"
                 android:layout_width="match_parent"
                 app:layout_constraintTop_toBottomOf="@+id/ln7"
@@ -166,13 +170,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_dtdau"
-            android:layout_width="280dp"
+            android:layout_width="240dp"
             android:layout_height="55dp"
             android:text="@string/c_t_u"
             app:cornerRadius="20dp"
             android:textAllCaps="false"
             android:layout_marginTop="6dp"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
             android:backgroundTint="@color/btn"/>
 
         <LinearLayout
@@ -180,7 +184,7 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="10dp"
             android:layout_gravity="end">
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="24dp"
@@ -192,6 +196,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/l_u"
+                android:textSize="9sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_likeee"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginEnd="70dp"
+            android:layout_gravity="end">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ic_like_non" />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Like"
                 android:textSize="9sp"
                 android:fontFamily="@font/poppinsmedium"
                 android:layout_gravity="center"/>
