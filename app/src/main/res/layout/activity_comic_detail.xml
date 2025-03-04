@@ -77,7 +77,7 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/poppinssemibold"
                         android:padding="5dp"
-                        android:text="-"
+                        android:text="@string/nulll"
                         android:textColor="@color/text1_1"
                         android:textSize="18sp" />
 
@@ -85,7 +85,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsmedium"
-                        android:text="Lượt Like"
+                        android:text="@string/l_t_like"
                         android:textColor="@color/text2"
                         android:textSize="10sp" />
                 </LinearLayout>
@@ -103,7 +103,7 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/poppinssemibold"
                         android:padding="5dp"
-                        android:text="-"
+                        android:text="@string/nulll"
                         android:textColor="@color/text1_1"
                         android:textSize="18sp" />
 
@@ -111,7 +111,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsmedium"
-                        android:text="Độ Hot"
+                        android:text="@string/hot"
                         android:textColor="@color/text2"
                         android:textSize="10sp" />
 
@@ -130,7 +130,7 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/poppinssemibold"
                         android:padding="5dp"
-                        android:text="-"
+                        android:text="@string/nulll"
                         android:textColor="@color/text1_1"
                         android:textSize="18sp" />
 
@@ -138,7 +138,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsmedium"
-                        android:text="Lượt Theo Dõi"
+                        android:text="@string/l_t_theo_d_i"
                         android:textColor="@color/text2"
                         android:textSize="10sp" />
 
@@ -168,7 +168,7 @@
             android:id="@+id/btn_dtdau"
             android:layout_width="280dp"
             android:layout_height="55dp"
-            android:text="Đọc từ đầu"
+            android:text="@string/c_t_u"
             app:cornerRadius="20dp"
             android:textAllCaps="false"
             android:layout_marginTop="6dp"
@@ -191,7 +191,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lưu"
+                android:text="@string/l_u"
                 android:textSize="9sp"
                 android:fontFamily="@font/poppinsmedium"
                 android:layout_gravity="center"/>

@@ -30,4 +30,10 @@
     <string name="chap_c">Chap đã đọc</string>
     <string name="try_n_ang_theo_d_i">Truyện đang theo dõi</string>
     <string name="l_ch_s_c_truy_n">Lịch sử đọc truyện</string>
+    <string name="nulll">-</string>
+    <string name="l_t_theo_d_i">Lượt Theo Dõi</string>
+    <string name="c_t_u">Đọc từ đầu</string>
+    <string name="l_u">Lưu</string>
+    <string name="hot">Độ Hot</string>
+    <string name="l_t_like">Lượt Like</string>
 </resources>
