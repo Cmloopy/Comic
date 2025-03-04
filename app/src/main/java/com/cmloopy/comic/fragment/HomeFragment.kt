@@ -9,25 +9,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.ImageSliderAdapter
 import com.cmloopy.comic.adapters.HomeListComicAdapter
+import com.cmloopy.comic.data.RetrofitClient
+import com.cmloopy.comic.data.api.ComicApi
 import com.cmloopy.comic.databinding.FragmentHomeBinding
 import com.cmloopy.comic.view.AllFinishComicAcitvity
 import com.cmloopy.comic.view.AllNewUpdateActivity
 import com.cmloopy.comic.view.CategoryActivity
 import com.cmloopy.comic.view.SearchActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Call
 
 class HomeFragment : Fragment() {
     private lateinit var _binding: FragmentHomeBinding
     private lateinit var handler: Handler
     private val binding get() = _binding
-    private val hotComic = ArrayList<Comic>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,20 +42,36 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        //Slider truyện đầu trang chủ
-        initSlider()
-        setUpSlider()
-        //Callback cho slider để cuôn vô hạn
-        callBackSlider()
+        // Khởi tạo Handler ngay trong onCreateView()
+        handler = Handler(Looper.getMainLooper())
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val apiService = RetrofitClient.instance.create(ComicApi::class.java)
 
-        //List truyện mới cập nhật
-        setUpNewestUpdateRecycle()
+                // Gọi API và nhận dữ liệu
+                val hotComic = withContext(Dispatchers.IO) { apiService.getComicHot() }
+                val fullComic = withContext(Dispatchers.IO) { apiService.getComicHT() }
+                val newComic = withContext(Dispatchers.IO) { apiService.getComicUpdate() }
 
-        //List truyen hoan thanh
-        setUpFinishRecycle()
+                // Cập nhật UI mà không cần runOnUiThread
+                initSlider(hotComic)
+                setUpSlider()
+                callBackSlider()
+                setUpNewestUpdateRecycle(newComic)
+                setUpFinishRecycle(fullComic)
 
-        //Click btn
+                context?.let {
+                    Toast.makeText(it, "ok", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                context?.let {
+                    Toast.makeText(it, "Lỗi API: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        // Xử lý sự kiện click button
         btnHomeFragmentOnClick()
 
         return binding.root
@@ -57,45 +80,42 @@ class HomeFragment : Fragment() {
     private fun btnHomeFragmentOnClick() {
         binding.btnXemthem1.setOnClickListener {
             val intent = Intent(requireContext(), AllNewUpdateActivity::class.java)
-            //Them putExtra neu can gui data
             startActivity(intent)
         }
         binding.btnXemthem2.setOnClickListener {
             val intent = Intent(requireContext(), AllFinishComicAcitvity::class.java)
-            //Them putExtra neu can gui data
             startActivity(intent)
         }
         binding.btnSrc.setOnClickListener {
             val intent = Intent(requireContext(), SearchActivity::class.java)
-            //putExtra nếu muốn send Data
             startActivity(intent)
         }
         binding.btnCate.setOnClickListener {
             val intent = Intent(requireContext(), CategoryActivity::class.java)
-            //putExtra nếu muốn đẩy Data
             startActivity(intent)
         }
     }
 
     private fun callBackSlider() {
-        binding.vpgSlideimg.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+        binding.vpgSlideimg.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                handler.removeCallbacks(runnable)
-                handler.postDelayed(runnable,3500)
+                if (::handler.isInitialized) {
+                    handler.removeCallbacks(runnable)
+                    handler.postDelayed(runnable, 3500)
+                }
             }
         })
     }
 
-    private fun setUpNewestUpdateRecycle() {
+    private fun setUpNewestUpdateRecycle(new: ArrayList<Comic>) {
         binding.rclListMCN.layoutManager = LinearLayoutManager(requireContext())
-        binding.rclListMCN.adapter = HomeListComicAdapter(hotComic)
-
+        binding.rclListMCN.adapter = HomeListComicAdapter(new)
     }
 
-    private fun setUpFinishRecycle() {
+    private fun setUpFinishRecycle(full: ArrayList<Comic>) {
         binding.rclListHT.layoutManager = LinearLayoutManager(requireContext())
-        binding.rclListHT.adapter = HomeListComicAdapter(hotComic)
+        binding.rclListHT.adapter = HomeListComicAdapter(full)
     }
 
     private val runnable = Runnable {
@@ -108,10 +128,7 @@ class HomeFragment : Fragment() {
         binding.vpgSlideimg.setPageTransformer(trans)
     }
 
-    private fun initSlider() {
-        handler = Handler(Looper.myLooper()!!)
-
-
+    private fun initSlider(hotComic: ArrayList<Comic>) {
         val adapter = ImageSliderAdapter(hotComic, binding.vpgSlideimg)
         binding.vpgSlideimg.adapter = adapter
         binding.vpgSlideimg.offscreenPageLimit = 3
@@ -122,11 +139,15 @@ class HomeFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        handler.removeCallbacks(runnable)
+        if (::handler.isInitialized) {
+            handler.removeCallbacks(runnable)
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        handler.postDelayed(runnable,3500)
+        if (::handler.isInitialized) {
+            handler.postDelayed(runnable, 3500)
+        }
     }
 }

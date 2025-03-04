@@ -5,10 +5,14 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface ComicApi {
-    @GET("/comic/hot")
-    fun getComicHot():Call<List<Comic>>
-    @GET("/comic/finish")
-    fun getComicHT(): Call<List<Comic>>
-    @GET("/comic/like")
-    fun getComicLike(): Call<List<Comic>>
+    @GET("comic/hot")
+    suspend fun getComicHot():ArrayList<Comic>
+    @GET("comic/finish")
+    suspend fun getComicHT(): ArrayList<Comic>
+    @GET("comic/allfinish")
+    suspend fun getAllComicHT(): ArrayList<Comic>
+    @GET("comic/newUpdate")
+    suspend fun getComicUpdate(): ArrayList<Comic>
+    @GET("comic/allNewUpdate")
+    suspend fun getAllComicUpdate(): ArrayList<Comic>
 }

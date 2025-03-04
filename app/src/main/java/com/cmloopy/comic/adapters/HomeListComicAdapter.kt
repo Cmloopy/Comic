@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cmloopy.comic.R
-import com.cmloopy.comic.models.Comic
+import Comic
 import com.cmloopy.comic.view.ComicDetailActivity
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 
-class HomeListComicAdapter(private val itemList: List<Comic>): RecyclerView.Adapter<HomeListComicAdapter.ItemViewHolder>() {
+class HomeListComicAdapter(private val itemList: ArrayList<Comic>): RecyclerView.Adapter<HomeListComicAdapter.ItemViewHolder>() {
+    private val storageReference = FirebaseStorage.getInstance().reference
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val imgBia = itemView.findViewById<ShapeableImageView>(R.id.img_bia)!!
         val nameCm = itemView.findViewById<MaterialTextView>(R.id.txt_namecm)!!
@@ -30,11 +33,19 @@ class HomeListComicAdapter(private val itemList: List<Comic>): RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        //Cho nay sau se load anh bang picasso
-        holder.imgBia.setImageResource(itemList[position].img)
+        val imageRef = storageReference.child(itemList[position].imageUrl)
+        imageRef.downloadUrl.addOnSuccessListener { uri ->
+            Picasso.get()
+                .load(uri)
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.warning)
+                .into(holder.imgBia)
+        }.addOnFailureListener { exception ->
+            // Xử lý khi có lỗi xảy ra trong quá trình tải ảnh
+        }
         holder.nameCm.text = (itemList[position].nameComic)
         holder.nameAuthor.text = (itemList[position].nameAuthor)
-        holder.new.text = (itemList[position].newChapter)
+        holder.new.text = (itemList[position].nameChapter)
         if(itemList[position].status == 1){
             holder.status.visibility = View.VISIBLE
         }

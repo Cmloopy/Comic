@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.TopAdapter
 import com.cmloopy.comic.databinding.FragmentTopFollowBinding
-import com.cmloopy.comic.models.Comic
+import Comic
 
 class TopFollowFragment : Fragment() {
     private lateinit var _binding : FragmentTopFollowBinding
@@ -22,14 +22,6 @@ class TopFollowFragment : Fragment() {
         _binding = FragmentTopFollowBinding.inflate(inflater,container,false)
 
         val list: ArrayList<Comic> = arrayListOf()
-        list.add(Comic(1,"Name Comic 1","Check", 1234, "test", "test", R.drawable.img_biamau, 12, 12, 0, "Author 1", 1, 1, "Chapter 12"))
-        list.add(Comic(1,"Name Comic 2","Check", 1232, "test", "test", R.drawable.test2, 12, 12, 0, "Author 1", 1, 1, "Chapter 12"))
-        list.add(Comic(1,"Name Comic 3","Check", 1221, "test", "test", R.drawable.img_biamau, 12, 12,1,  "Author 1", 1, 1, "Chapter 12"))
-        list.add(Comic(1,"Name Comic 4","Check", 1212, "test", "test", R.drawable.test2, 12, 12,1, "Author 1", 1, 1, "Chapter 12"))
-        list.add(Comic(1,"Name Comic 5","Check", 1190, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
-        list.add(Comic(1,"Name Comic 6","Check", 1180, "test", "test", R.drawable.test2, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
-        list.add(Comic(1,"Name Comic 7","Check", 1100, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author 1", 1, 1, "Chapter 12"))
-        list.add(Comic(1,"Name Comic 8","Check", 1000, "test", "test", R.drawable.test2, 12, 12,1, "Author 1", 1, 1, "Chapter 12"))
 
         binding.rclListTopFollow.layoutManager = LinearLayoutManager(requireContext())
         binding.rclListTopFollow.adapter = TopAdapter(list,2)

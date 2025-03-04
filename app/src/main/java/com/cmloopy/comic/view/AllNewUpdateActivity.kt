@@ -1,12 +1,12 @@
 package com.cmloopy.comic.view
 
+import Comic
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.AllNewFullComicAdapter
 import com.cmloopy.comic.databinding.ActivityAllNewUpdateBinding
-import com.cmloopy.comic.models.Comic
 
 class AllNewUpdateActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAllNewUpdateBinding
@@ -31,38 +31,6 @@ class AllNewUpdateActivity : AppCompatActivity() {
 
     private fun initRecycle() {
         val hotComic = ArrayList<Comic>()
-        hotComic.add(Comic(1,"Name Comic 1","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 2","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 3","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 4","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 5","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 6","Check", 1200, "test", "test", R.drawable.test2, 12, 12, 0,"Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.test2, 12, 12, 0,"Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 1","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 2","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 3","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 4","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 5","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 6","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 1","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 2","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 3","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 4","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 5","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 6","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 1","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 2","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 3","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 4","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 5","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,0, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 6","Check", 1200, "test", "test", R.drawable.test2, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.img_biamau, 12, 12,1, "Author1", 1, 1, "Chapter12"))
-        hotComic.add(Comic(1,"Name Comic 7","Check", 1200, "test", "test", R.drawable.test2, 12, 12,0, "Author1", 1, 1, "Chapter12"))
 
         binding.rclListMCN2.layoutManager = LinearLayoutManager(this)
         binding.rclListMCN2.adapter = AllNewFullComicAdapter(hotComic)

@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cmloopy.comic.R
-import com.cmloopy.comic.models.Comic
+import Comic
 import com.cmloopy.comic.view.ComicDetailActivity
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
+import com.squareup.picasso.Picasso
 
 class TopAdapter(private val itemList: ArrayList<Comic>, private val choose: Int): RecyclerView.Adapter<TopAdapter.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -41,7 +42,9 @@ class TopAdapter(private val itemList: ArrayList<Comic>, private val choose: Int
                 else -> R.drawable.t7
             }
         )
-        holder.bia.setImageResource(itemList[position].img)
+        Picasso.get()
+            .load(itemList[position].imageUrl)
+            .into(holder.bia)
         holder.namecm.text = itemList[position].nameComic
         when(choose){
             0 -> holder.sl.text = itemList[position].view.toString()
