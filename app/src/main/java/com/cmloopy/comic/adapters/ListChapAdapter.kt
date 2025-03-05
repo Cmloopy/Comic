@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.cmloopy.comic.R
-import com.cmloopy.comic.ReadActivity
+import com.cmloopy.comic.view.ReadActivity
 import com.cmloopy.comic.models.Chapter
 import com.google.android.material.textview.MaterialTextView
 
@@ -36,7 +36,7 @@ class ListChapAdapter(val itemList: ArrayList<Chapter>): RecyclerView.Adapter<Li
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
-            val intent = Intent(context,ReadActivity::class.java)
+            val intent = Intent(context, ReadActivity::class.java)
             context.startActivity(intent)
         }
     }
