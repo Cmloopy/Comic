@@ -21,8 +21,8 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/btn_backPrevious"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="12dp"
                 android:padding="5dp"
@@ -46,7 +46,7 @@
                 android:id="@+id/txt_namecomic"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppinssemibold"
                 android:gravity="center"
                 android:text="@string/comicNameEx"
@@ -60,7 +60,7 @@
                 android:id="@+id/ln7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/txt_namecomic">
 
@@ -150,15 +150,93 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_marginTop="15dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:id="@+id/rcl_category"
                 android:layout_width="match_parent"
                 app:layout_constraintTop_toBottomOf="@+id/ln7"
                 android:layout_height="30dp"/>
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/ln8"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/rcl_category">
 
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/n_i_dung"
+                    android:textSize="13sp"
+                    android:textColor="@color/text1_1"
+                    android:fontFamily="@font/poppinssemibold"/>
 
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txt_nd"
+                        android:layout_marginTop="5dp"
+                        android:maxLines="3"
+                        android:textSize="12sp"
+                        android:textColor="@color/text1_1"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:text="Day la noi dung truyen test thu, khong co y nghia gi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="bottom"
+                        android:src="@drawable/ic_down"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_slChap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chapter"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/text1_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ln8" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lv_3cmn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/txt_slChap"
+                tools:layout_editor_absoluteX="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_listChapAll"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:paddingTop="7dp"
+                android:text="@string/xem_t_t_c_chapter"
+                android:layout_marginTop="10dp"
+                android:textAllCaps="false"
+                android:textSize="10sp"
+                app:strokeColor="@color/text2"
+                app:strokeWidth="1dp"
+                app:cornerRadius="20dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:textColor="@color/text2"
+                android:backgroundTint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lv_3cmn" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

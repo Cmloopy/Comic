@@ -36,4 +36,9 @@
     <string name="l_u">Lưu</string>
     <string name="hot">Độ Hot</string>
     <string name="l_t_like">Lượt Like</string>
+    <string name="n_i_dung">Nội dung</string>
+    <string name="chapter">Chapter</string>
+    <string name="testC">1. Chapter 1</string>
+    <string name="_05_03_2025">05/03/2025</string>
+    <string name="xem_t_t_c_chapter">Xem tất cả Chapter</string>
 </resources>
