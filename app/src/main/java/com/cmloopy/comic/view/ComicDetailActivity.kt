@@ -40,7 +40,7 @@ class ComicDetailActivity : AppCompatActivity() {
                 val comic = withContext(Dispatchers.IO){apiComicService.getComicById(idComic = idComic)}
                 val category = withContext(Dispatchers.IO){apiCateService.getAllCategoryByComicId(idComic = idComic)}
                 val chapter = withContext(Dispatchers.IO) {apiChapterService.getChapterByIdComic(idComic = idComic)}
-                val chapterEx = ArrayList(chapter.subList(0,4))
+                val chapterEx = ArrayList(chapter.subList(0,5))
                 val imageRef = storageReference.child(comic[0].imageUrl)
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                     Picasso.get()
