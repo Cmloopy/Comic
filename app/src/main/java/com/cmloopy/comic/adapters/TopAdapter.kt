@@ -58,7 +58,7 @@ class TopAdapter(private val itemList: ArrayList<Comic>, private val choose: Int
         when(choose){
             0 -> holder.sl.text = itemList[position].view.toString()
             1 -> holder.sl.text = itemList[position].likes.toString()
-            else -> holder.sl.setText("8000")
+            else -> holder.sl.text = "8000"
         }
         holder.auth.text = itemList[position].nameAuthor
         holder.itemView.setOnClickListener {

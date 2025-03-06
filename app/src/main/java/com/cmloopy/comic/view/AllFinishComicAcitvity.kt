@@ -3,7 +3,6 @@ package com.cmloopy.comic.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.AllNewFullComicAdapter
 import com.cmloopy.comic.databinding.ActivityAllFinishComicBinding
 import Comic
@@ -13,7 +12,6 @@ import com.cmloopy.comic.data.api.ComicApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.create
 
 class AllFinishComicAcitvity : AppCompatActivity() {
     private lateinit var binding: ActivityAllFinishComicBinding

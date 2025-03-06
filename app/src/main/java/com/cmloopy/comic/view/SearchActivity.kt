@@ -5,7 +5,6 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.HomeListComicAdapter
 import com.cmloopy.comic.data.RetrofitClient
 import com.cmloopy.comic.data.api.ComicApi
@@ -13,8 +12,6 @@ import com.cmloopy.comic.databinding.ActivitySearchBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.create
-import retrofit2.http.Path
 
 class SearchActivity : AppCompatActivity() {
     private lateinit var binding : ActivitySearchBinding
@@ -42,7 +39,7 @@ class SearchActivity : AppCompatActivity() {
                 }
             }
             catch (e: Exception){
-
+                println(e)
             }
         }
 

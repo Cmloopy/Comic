@@ -41,7 +41,7 @@ class HomeListComicAdapter(private val itemList: ArrayList<Comic>): RecyclerView
                 .error(R.drawable.warning)
                 .into(holder.imgBia)
         }.addOnFailureListener { exception ->
-            // Xử lý khi có lỗi xảy ra trong quá trình tải ảnh
+            println(exception)
         }
         holder.nameCm.text = (itemList[position].nameComic)
         holder.nameAuthor.text = (itemList[position].nameAuthor)

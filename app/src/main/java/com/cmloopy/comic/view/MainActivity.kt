@@ -3,7 +3,6 @@ package com.cmloopy.comic.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.cmloopy.comic.databinding.ActivityMainBinding
-import androidx.viewpager2.widget.ViewPager2
 import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.MainViewPagerAdpater
 

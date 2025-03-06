@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cmloopy.comic.R
 import com.cmloopy.comic.adapters.AllNewFullComicAdapter
 import com.cmloopy.comic.data.RetrofitClient
 import com.cmloopy.comic.data.api.ComicApi

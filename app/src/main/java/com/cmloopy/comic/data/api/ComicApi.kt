@@ -1,7 +1,6 @@
 package com.cmloopy.comic.data.api
 
 import Comic
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 
