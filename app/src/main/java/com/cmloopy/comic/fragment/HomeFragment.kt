@@ -128,6 +128,7 @@ class HomeFragment : Fragment() {
     private fun initSlider(hotComic: ArrayList<Comic>) {
         val adapter = ImageSliderAdapter(hotComic, binding.vpgSlideimg)
         binding.vpgSlideimg.adapter = adapter
+        binding.vpgSlideimg.isUserInputEnabled = true
         binding.vpgSlideimg.offscreenPageLimit = 3
         binding.vpgSlideimg.clipToPadding = false
         binding.vpgSlideimg.clipChildren = false
