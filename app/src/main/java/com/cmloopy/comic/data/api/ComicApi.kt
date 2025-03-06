@@ -19,4 +19,6 @@ interface ComicApi {
     suspend fun getAllComicUpdate(): ArrayList<Comic>
     @GET("comic/{idComic}")
     suspend fun getComicById(@Path("idComic") idComic: Int): ArrayList<Comic>
+    @GET("comic/category/{nameCategory}")
+    suspend fun getComicByCategory(@Path("nameCategory") nameCategory: String): ArrayList<Comic>
 }

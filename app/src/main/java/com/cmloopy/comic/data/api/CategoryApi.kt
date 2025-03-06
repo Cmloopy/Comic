@@ -7,4 +7,6 @@ import retrofit2.http.Path
 interface CategoryApi {
     @GET("category/comic/{idComic}")
     suspend fun getAllCategoryByComicId(@Path("idComic") idComic: Int): ArrayList<Category>
+    @GET("category")
+    suspend fun getAllCategory(): ArrayList<Category>
 }
