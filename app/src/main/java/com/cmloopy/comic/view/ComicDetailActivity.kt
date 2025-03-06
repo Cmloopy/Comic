@@ -1,5 +1,6 @@
 package com.cmloopy.comic.view
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,9 @@ import com.cmloopy.comic.models.Chapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.shape.CornerFamily
+import com.google.android.material.shape.MaterialShapeDrawable
+import com.google.android.material.shape.ShapeAppearanceModel
 import com.google.android.material.textview.MaterialTextView
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
@@ -103,6 +107,7 @@ class ComicDetailActivity : AppCompatActivity() {
         //Setup recycleView
         val listAll = view.findViewById<RecyclerView>(R.id.rcl_listFullChap)
         listAll.layoutManager = LinearLayoutManager(this)
+        listAll.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
         listAll.adapter = ListChapAdapter(chapter)
         val txtSL = view.findViewById<MaterialTextView>(R.id.txt_capnhat)
         txtSL.text = "Cập nhật đến chap ${slChap}"
@@ -131,7 +136,10 @@ class ComicDetailActivity : AppCompatActivity() {
                 behavior.peekHeight = 600 // Đặt chiều cao cố định
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED // Giữ trạng thái mở rộng
                 behavior.isDraggable = false // Không cho phép kéo lên/xuống
+
+                it.setBackgroundColor(Color.TRANSPARENT)
             }
+
         }
 
         //Tắt sheet khi bấm ra ngoài

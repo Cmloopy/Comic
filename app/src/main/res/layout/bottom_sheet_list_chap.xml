@@ -2,15 +2,16 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardCornerRadius="9dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="630dp">
 
         <LinearLayout
             android:id="@+id/ln9"
-            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +35,7 @@
                 android:id="@+id/btn_oldest"
                 android:layout_width="90dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="42dp"
                 android:text="Cũ nhất"
                 android:textSize="10sp"
                 android:fontFamily="@font/poppinssemibold"

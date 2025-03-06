@@ -55,7 +55,7 @@
             app:tint="@color/text1" />
 
         <!-- Ô nhập tìm kiếm -->
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/searchInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -64,6 +64,7 @@
             android:hint="Nhập tên truyện..."
             android:padding="8dp"
             android:textSize="14sp"
+            android:completionThreshold="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/filterIcon"
             app:layout_constraintStart_toEndOf="@id/searchIcon"
