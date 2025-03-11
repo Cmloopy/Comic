@@ -10,7 +10,7 @@ import com.cmloopy.comic.view.ReadActivity
 import com.cmloopy.comic.models.Chapter
 import com.google.android.material.textview.MaterialTextView
 
-class ListChapAdapter(val idComic: Int,val itemList: ArrayList<Chapter>, private val idUser:Int): RecyclerView.Adapter<ListChapAdapter.ChapterViewHolder>() {
+class ListChapAdapter(val idComic: Int,private val itemList: ArrayList<Chapter>, private val idUser:Int): RecyclerView.Adapter<ListChapAdapter.ChapterViewHolder>() {
 
     class ChapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val nameChapter = itemView.findViewById<MaterialTextView>(R.id.name_chap)

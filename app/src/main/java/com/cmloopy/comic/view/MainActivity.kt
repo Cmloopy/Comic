@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var idUser = intent.getIntExtra("idUser",-1)
+        val idUser = intent.getIntExtra("idUser",-1)
         //Thiết lập adapter cho viewpager
         val adapter = MainViewPagerAdpater(this, idUser)
         binding.vpgMain.adapter = adapter

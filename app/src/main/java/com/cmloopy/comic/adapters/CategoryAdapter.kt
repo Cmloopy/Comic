@@ -8,7 +8,7 @@ import com.cmloopy.comic.R
 import com.cmloopy.comic.models.Category
 import com.google.android.material.textview.MaterialTextView
 
-class CategoryAdapter(val itemList: ArrayList<Category>): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(private val itemList: ArrayList<Category>): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
     class CategoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val nameCate = itemView.findViewById<MaterialTextView>(R.id.txt_cate)
     }

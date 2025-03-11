@@ -52,7 +52,7 @@ class TopAdapter(private val itemList: ArrayList<Comic>,private val idUser:Int, 
                 .error(R.drawable.warning)
                 .into(holder.bia)
         }.addOnFailureListener { exception ->
-            // Xử lý khi có lỗi xảy ra trong quá trình tải ảnh
+            println(exception)
         }
         holder.namecm.text = itemList[position].nameComic
         when(choose){

@@ -42,7 +42,7 @@ class ImageSliderAdapter(private var hotComic: ArrayList<Comic>, private var vie
                 .error(R.drawable.warning)
                 .into(holder.bia)
         }.addOnFailureListener { exception ->
-            // Xử lý khi có lỗi xảy ra trong quá trình tải ảnh
+            println(exception)
         }
         if (position == hotComic.size-1){
             viewpager2.post(runnable)

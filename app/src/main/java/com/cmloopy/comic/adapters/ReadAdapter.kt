@@ -9,7 +9,7 @@ import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 
-class ReadAdapter(private val item_image_comic: List<String>): RecyclerView.Adapter<ReadAdapter.ReadViewHolder>() {
+class ReadAdapter(private val itemImageComic: List<String>): RecyclerView.Adapter<ReadAdapter.ReadViewHolder>() {
     private val storageReference = FirebaseStorage.getInstance().reference
     class ReadViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val img_comic = itemView.findViewById<ShapeableImageView>(R.id.img_comic)
@@ -21,16 +21,16 @@ class ReadAdapter(private val item_image_comic: List<String>): RecyclerView.Adap
     }
 
     override fun getItemCount(): Int {
-        return item_image_comic.size
+        return itemImageComic.size
     }
 
     override fun onBindViewHolder(holder: ReadViewHolder, position: Int) {
-        val imagePath = item_image_comic[position]
+        val imagePath = itemImageComic[position]
         val imageRef = storageReference.child(imagePath)
         imageRef.downloadUrl.addOnSuccessListener { uri ->
             Picasso.get().load(uri).into(holder.img_comic)
         }.addOnFailureListener { exception ->
-            // Xử lý khi có lỗi xảy ra trong quá trình tải ảnh
+            println(exception)
         }
     }
 }
