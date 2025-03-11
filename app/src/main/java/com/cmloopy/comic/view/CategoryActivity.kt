@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +24,7 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val idUser = intent.getIntExtra("idUser",-1)
         lifecycleScope.launch {
             val apiComicService = RetrofitClient.instance.create(ComicApi::class.java)
             val apiCateService = RetrofitClient.instance.create(CategoryApi::class.java)
@@ -32,7 +33,7 @@ class CategoryActivity : AppCompatActivity() {
 
             val nameCateee = category.map { it.nameCategory }
             binding.listSearchCate.layoutManager = LinearLayoutManager(this@CategoryActivity)
-            binding.listSearchCate.adapter = HomeListComicAdapter(comic)
+            binding.listSearchCate.adapter = HomeListComicAdapter(comic, idUser)
 
             val adapter = ArrayAdapter(this@CategoryActivity, android.R.layout.simple_spinner_item, nameCateee)
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -43,7 +44,7 @@ class CategoryActivity : AppCompatActivity() {
                     lifecycleScope.launch {
                         val apiComic = RetrofitClient.instance.create(ComicApi::class.java)
                         val comicc = withContext(Dispatchers.IO){apiComic.getComicByCategory(nameCategory = choose)}
-                        binding.listSearchCate.adapter = HomeListComicAdapter(comicc)
+                        binding.listSearchCate.adapter = HomeListComicAdapter(comicc,idUser)
                         binding.listSearchCate.run { adapter.notifyDataSetChanged() }
                     }
                 }

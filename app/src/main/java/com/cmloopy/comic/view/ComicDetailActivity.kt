@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -37,6 +38,7 @@ class ComicDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         //Nhận id comic từ intent
         val idComic = intent.getIntExtra("idComic",-1)
+        val idUser = intent.getIntExtra("idUser",-1)
 
         //Setup Data cho Activity từ API
         lifecycleScope.launch {
@@ -70,7 +72,7 @@ class ComicDetailActivity : AppCompatActivity() {
 
                 binding.lv3cmn.layoutManager = LinearLayoutManager(this@ComicDetailActivity)
                 binding.lv3cmn.addItemDecoration(DividerItemDecoration(this@ComicDetailActivity, DividerItemDecoration.VERTICAL))
-                binding.lv3cmn.adapter = ListChapAdapter(idComic,chapterEx)
+                binding.lv3cmn.adapter = ListChapAdapter(idComic,chapterEx, idUser)
 
                 val layoutManager = LinearLayoutManager(this@ComicDetailActivity, LinearLayoutManager.HORIZONTAL, false)
 
@@ -79,14 +81,14 @@ class ComicDetailActivity : AppCompatActivity() {
 
                 //Click xem all list
                 binding.btnListChapAll.setOnClickListener {
-                    setUpBottomSheetListChap(idComic, comic[0].sc, chapter)
+                    setUpBottomSheetListChap(idComic, comic[0].sc, chapter, idUser)
                 }
                 //Doc tu dau
                 binding.btnDtdau.setOnClickListener {
                     val intent = Intent(this@ComicDetailActivity, ReadActivity::class.java)
+                    intent.putExtra("idUser",idUser)
                     intent.putExtra("idComic", idComic)
                     intent.putExtra("idChapter",list_id_chap[list_id_chap.size-1])
-                    intent.putExtra("urlChapter",list_link_chap[list_link_chap.size-1])
                     startActivity(intent)
                 }
             }
@@ -107,14 +109,14 @@ class ComicDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun setUpBottomSheetListChap(idComic: Int, slChap : Int, chapter: ArrayList<Chapter>) {
+    private fun setUpBottomSheetListChap(idComic: Int, slChap : Int, chapter: ArrayList<Chapter>, idUser: Int) {
         val dialog = BottomSheetDialog(this)
         val view = layoutInflater.inflate(R.layout.bottom_sheet_list_chap, null)
         //Setup recycleView
         val listAll = view.findViewById<RecyclerView>(R.id.rcl_listFullChap)
         listAll.layoutManager = LinearLayoutManager(this)
         listAll.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-        listAll.adapter = ListChapAdapter(idComic,chapter)
+        listAll.adapter = ListChapAdapter(idComic,chapter, idUser)
         val txtSL = view.findViewById<MaterialTextView>(R.id.txt_capnhat)
         txtSL.text = "Cập nhật đến chap ${slChap}"
         //Setup btn
@@ -123,13 +125,13 @@ class ComicDetailActivity : AppCompatActivity() {
         val chapterNw = chapter
         btnOld.setOnClickListener {
             val chapterRv = ArrayList(chapter.reversed())
-            listAll.adapter = ListChapAdapter(idComic,chapterRv)
+            listAll.adapter = ListChapAdapter(idComic,chapterRv, idUser)
             listAll.run { adapter?.notifyDataSetChanged() }
             btnOld.setTextColor(resources.getColor(R.color.btn))
             btnNew.setTextColor(resources.getColor(R.color.text2))
         }
         btnNew.setOnClickListener {
-            listAll.adapter = ListChapAdapter(idComic,chapterNw)
+            listAll.adapter = ListChapAdapter(idComic,chapterNw, idUser)
             listAll.run { adapter?.notifyDataSetChanged() }
             btnNew.setTextColor(resources.getColor(R.color.btn))
             btnOld.setTextColor(resources.getColor(R.color.text2))

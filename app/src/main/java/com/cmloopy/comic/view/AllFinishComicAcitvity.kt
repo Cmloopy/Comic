@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cmloopy.comic.adapters.AllNewFullComicAdapter
 import com.cmloopy.comic.databinding.ActivityAllFinishComicBinding
 import Comic
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.cmloopy.comic.data.RetrofitClient
 import com.cmloopy.comic.data.api.ComicApi
@@ -19,13 +20,14 @@ class AllFinishComicAcitvity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAllFinishComicBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val idUser = intent.getIntExtra("idUser", -1)
 
         lifecycleScope.launch {
             try {
                 val apiService = RetrofitClient.instance.create(ComicApi::class.java)
                 val allFinish = withContext(Dispatchers.IO) {apiService.getAllComicHT()}
                 //Setup Recycleview
-                initRecycle(allFinish)
+                initRecycle(allFinish, idUser)
             }
             catch (e: Exception){
 
@@ -43,8 +45,8 @@ class AllFinishComicAcitvity : AppCompatActivity() {
         }
     }
 
-    private fun initRecycle(allFinish: ArrayList<Comic>) {
+    private fun initRecycle(allFinish: ArrayList<Comic>, idUser:Int) {
         binding.rclListHT2.layoutManager = LinearLayoutManager(this)
-        binding.rclListHT2.adapter = AllNewFullComicAdapter(allFinish)
+        binding.rclListHT2.adapter = AllNewFullComicAdapter(allFinish, idUser)
     }
 }

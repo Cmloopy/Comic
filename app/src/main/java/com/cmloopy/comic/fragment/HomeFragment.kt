@@ -34,13 +34,17 @@ class HomeFragment : Fragment() {
     private lateinit var _binding: FragmentHomeBinding
     private lateinit var handler: Handler
     private val binding get() = _binding
-
+    private var idUser = -1
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        arguments?.let {
+            idUser = it.getInt("idUser", -1)
+        }
+
 
         // Khởi tạo Handler ngay trong onCreateView()
         handler = Handler(Looper.getMainLooper())
@@ -77,18 +81,22 @@ class HomeFragment : Fragment() {
     private fun btnHomeFragmentOnClick() {
         binding.btnXemthem1.setOnClickListener {
             val intent = Intent(requireContext(), AllNewUpdateActivity::class.java)
+            intent.putExtra("idUser",idUser)
             startActivity(intent)
         }
         binding.btnXemthem2.setOnClickListener {
             val intent = Intent(requireContext(), AllFinishComicAcitvity::class.java)
+            intent.putExtra("idUser",idUser)
             startActivity(intent)
         }
         binding.btnSrc.setOnClickListener {
             val intent = Intent(requireContext(), SearchActivity::class.java)
+            intent.putExtra("idUser",idUser)
             startActivity(intent)
         }
         binding.btnCate.setOnClickListener {
             val intent = Intent(requireContext(), CategoryActivity::class.java)
+            intent.putExtra("idUser",idUser)
             startActivity(intent)
         }
     }
@@ -107,12 +115,12 @@ class HomeFragment : Fragment() {
 
     private fun setUpNewestUpdateRecycle(new: ArrayList<Comic>) {
         binding.rclListMCN.layoutManager = LinearLayoutManager(requireContext())
-        binding.rclListMCN.adapter = HomeListComicAdapter(new)
+        binding.rclListMCN.adapter = HomeListComicAdapter(new,idUser)
     }
 
     private fun setUpFinishRecycle(full: ArrayList<Comic>) {
         binding.rclListHT.layoutManager = LinearLayoutManager(requireContext())
-        binding.rclListHT.adapter = HomeListComicAdapter(full)
+        binding.rclListHT.adapter = HomeListComicAdapter(full, idUser)
     }
 
     private val runnable = Runnable {
@@ -147,5 +155,12 @@ class HomeFragment : Fragment() {
         if (::handler.isInitialized) {
             handler.postDelayed(runnable, 3500)
         }
+    }
+    fun newInstance(idUser: Int): HomeFragment {
+        val fragment = HomeFragment()
+        val args = Bundle()
+        args.putInt("idUser", idUser)
+        fragment.arguments = args
+        return fragment
     }
 }

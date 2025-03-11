@@ -22,19 +22,23 @@ import retrofit2.create
 class TopViewFragment : Fragment() {
     private lateinit var _binding : FragmentTopViewBinding
     private val binding get() = _binding
+    private var idUser = -1
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentTopViewBinding.inflate(inflater,container,false)
+        arguments?.let {
+            idUser = it.getInt("idUser", -1)
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val apiService = RetrofitClient.instance.create(ComicApi::class.java)
                 val topView = withContext(Dispatchers.IO) {apiService.getComicHot()}
                 binding.rclListTopView.layoutManager = LinearLayoutManager(requireContext())
-                binding.rclListTopView.adapter = TopAdapter(topView,0)
+                binding.rclListTopView.adapter = TopAdapter(topView,idUser,0)
             }
             catch (e:Exception){
                 context?.let {
@@ -44,5 +48,12 @@ class TopViewFragment : Fragment() {
         }
 
         return binding.root
+    }
+    fun newInstance(idUser: Int): TopViewFragment {
+        val fragment = TopViewFragment()
+        val args = Bundle()
+        args.putInt("idUser", idUser)
+        fragment.arguments = args
+        return fragment
     }
 }

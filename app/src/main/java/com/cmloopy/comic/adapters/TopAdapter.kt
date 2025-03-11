@@ -13,7 +13,7 @@ import com.google.android.material.textview.MaterialTextView
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 
-class TopAdapter(private val itemList: ArrayList<Comic>, private val choose: Int): RecyclerView.Adapter<TopAdapter.ItemViewHolder>() {
+class TopAdapter(private val itemList: ArrayList<Comic>,private val idUser:Int, private val choose: Int): RecyclerView.Adapter<TopAdapter.ItemViewHolder>() {
     private val storageReference = FirebaseStorage.getInstance().reference
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val topbxh = itemView.findViewById<ShapeableImageView>(R.id.img_top)
@@ -64,6 +64,7 @@ class TopAdapter(private val itemList: ArrayList<Comic>, private val choose: Int
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, ComicDetailActivity::class.java)
             intent.putExtra("idComic", itemList[position].idComic)
+            intent.putExtra("idUser", idUser)
             holder.itemView.context.startActivity(intent)
         }
     }

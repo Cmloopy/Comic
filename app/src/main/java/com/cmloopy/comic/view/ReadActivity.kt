@@ -25,6 +25,7 @@ class ReadActivity : AppCompatActivity() {
         //Lay id chapter + comic cua chap
         val idComic = intent.getIntExtra("idComic",-1)
         val idChapter = intent.getIntExtra("idChapter",-1)
+        val idUser = intent.getIntExtra("idUser", -1)
         lifecycleScope.launch {
             val apiChapterService = RetrofitClient.instance.create(ChapterApi::class.java)
 

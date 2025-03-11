@@ -7,13 +7,13 @@ import com.cmloopy.comic.fragment.HomeFragment
 import com.cmloopy.comic.fragment.PersonFragment
 import com.cmloopy.comic.fragment.RankFragment
 
-class MainViewPagerAdpater(activity: FragmentActivity) : FragmentStateAdapter(activity) {
+class MainViewPagerAdpater(activity: FragmentActivity, private val idUser: Int) : FragmentStateAdapter(activity) {
     override fun createFragment(position: Int): Fragment {
         return when(position) {
-            0 -> HomeFragment()
-            1 -> RankFragment()
-            2 -> PersonFragment()
-            else -> HomeFragment()
+            0 -> HomeFragment().newInstance(idUser)
+            1 -> RankFragment().newInstance(idUser)
+            2 -> PersonFragment().newInstance(idUser)
+            else -> HomeFragment().newInstance(idUser)
         }
     }
 

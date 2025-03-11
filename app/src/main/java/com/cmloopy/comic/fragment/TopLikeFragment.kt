@@ -19,19 +19,23 @@ import kotlinx.coroutines.withContext
 class TopLikeFragment : Fragment() {
     private lateinit var _binding : FragmentTopLikeBinding
     private val binding get() = _binding
+    private var idUser = -1
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentTopLikeBinding.inflate(inflater,container,false)
+        arguments?.let {
+            idUser = it.getInt("idUser", -1)
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val apiService = RetrofitClient.instance.create(ComicApi::class.java)
                 val topLike = withContext(Dispatchers.IO) {apiService.getComicLike()}
                 binding.rclListTopLike.layoutManager = LinearLayoutManager(requireContext())
-                binding.rclListTopLike.adapter = TopAdapter(topLike,1)
+                binding.rclListTopLike.adapter = TopAdapter(topLike,idUser,1)
             }
             catch (e:Exception){
                 context?.let {
@@ -41,5 +45,12 @@ class TopLikeFragment : Fragment() {
         }
 
         return binding.root
+    }
+    fun newInstance(idUser: Int): TopLikeFragment {
+        val fragment = TopLikeFragment()
+        val args = Bundle()
+        args.putInt("idUser", idUser)
+        fragment.arguments = args
+        return fragment
     }
 }

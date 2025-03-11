@@ -2,6 +2,7 @@ package com.cmloopy.comic.view
 
 import Comic
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,13 +20,13 @@ class AllNewUpdateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAllNewUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val idUser = intent.getIntExtra("idUser",-1)
         lifecycleScope.launch {
             try {
                 val apiService = RetrofitClient.instance.create(ComicApi::class.java)
                 val allNew = withContext(Dispatchers.IO) {apiService.getAllComicUpdate()}
                 //Setup Recycleview
-                initRecycle(allNew)
+                initRecycle(allNew, idUser)
             }
             catch (e: Exception){
 
@@ -43,8 +44,8 @@ class AllNewUpdateActivity : AppCompatActivity() {
         }
     }
 
-    private fun initRecycle(allNew: ArrayList<Comic>) {
+    private fun initRecycle(allNew: ArrayList<Comic>, idUser: Int) {
         binding.rclListMCN2.layoutManager = LinearLayoutManager(this)
-        binding.rclListMCN2.adapter = AllNewFullComicAdapter(allNew)
+        binding.rclListMCN2.adapter = AllNewFullComicAdapter(allNew, idUser)
     }
 }
