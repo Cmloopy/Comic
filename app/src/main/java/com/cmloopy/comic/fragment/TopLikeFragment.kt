@@ -46,6 +46,7 @@ class TopLikeFragment : Fragment() {
 
         return binding.root
     }
+    //Object nhan data tu activity, fragment cha
     fun newInstance(idUser: Int): TopLikeFragment {
         val fragment = TopLikeFragment()
         val args = Bundle()

@@ -49,6 +49,7 @@ class TopViewFragment : Fragment() {
 
         return binding.root
     }
+    //Object nhan data tu activity, fragment cha
     fun newInstance(idUser: Int): TopViewFragment {
         val fragment = TopViewFragment()
         val args = Bundle()

@@ -156,6 +156,7 @@ class HomeFragment : Fragment() {
             handler.postDelayed(runnable, 3500)
         }
     }
+    //Object nhan data tu activity, fragment cha
     fun newInstance(idUser: Int): HomeFragment {
         val fragment = HomeFragment()
         val args = Bundle()

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -91,6 +90,21 @@ class ComicDetailActivity : AppCompatActivity() {
                     intent.putExtra("idChapter",list_id_chap[list_id_chap.size-1])
                     startActivity(intent)
                 }
+                if(idUser < 0){
+                    binding.btnLikeee.setOnClickListener {
+                        Login()
+                    }
+                    binding.btnFollow.setOnClickListener {
+                        Login()
+                    }
+                } else{
+                    binding.btnLikeee.setOnClickListener {
+                        //Xu ly like api
+                    }
+                    binding.btnFollow.setOnClickListener {
+                        //Xu ly follow api
+                    }
+                }
             }
             catch (e: Exception){
                 println(e)
@@ -100,12 +114,6 @@ class ComicDetailActivity : AppCompatActivity() {
         //Click
         binding.btnBackPrevious.setOnClickListener {
             onBackPressed()
-        }
-        binding.btnLikeee.setOnClickListener {
-
-        }
-        binding.btnFollow.setOnClickListener {
-
         }
     }
 
@@ -154,5 +162,9 @@ class ComicDetailActivity : AppCompatActivity() {
         dialog.setCancelable(true)
         dialog.setContentView(view)
         dialog.show()
+    }
+    fun Login(){
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
     }
 }

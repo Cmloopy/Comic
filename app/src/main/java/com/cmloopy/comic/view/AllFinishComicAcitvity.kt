@@ -30,7 +30,7 @@ class AllFinishComicAcitvity : AppCompatActivity() {
                 initRecycle(allFinish, idUser)
             }
             catch (e: Exception){
-
+                println(e)
             }
         }
 

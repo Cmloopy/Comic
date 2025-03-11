@@ -47,6 +47,7 @@ class TopFollowFragment : Fragment() {
 
         return binding.root
     }
+    //Object nhan data tu activity, fragment cha
     fun newInstance(idUser: Int): TopFollowFragment {
         val fragment = TopFollowFragment()
         val args = Bundle()

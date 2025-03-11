@@ -18,6 +18,7 @@ import kotlinx.coroutines.withContext
 class ReadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReadBinding
     private val StorageRef = Firebase.storage.reference
+    private var idUser = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityReadBinding.inflate(layoutInflater)
@@ -25,7 +26,7 @@ class ReadActivity : AppCompatActivity() {
         //Lay id chapter + comic cua chap
         val idComic = intent.getIntExtra("idComic",-1)
         val idChapter = intent.getIntExtra("idChapter",-1)
-        val idUser = intent.getIntExtra("idUser", -1)
+        idUser = intent.getIntExtra("idUser", -1)
         lifecycleScope.launch {
             val apiChapterService = RetrofitClient.instance.create(ChapterApi::class.java)
 
@@ -55,7 +56,7 @@ class ReadActivity : AppCompatActivity() {
                     intent.putExtra("idChapter",list_id_chap[posit+1])
                     startActivity(intent)
                 } else {
-
+                    //Toast het chap cu
                 }
             }
             binding.btnNextChap.setOnClickListener {
@@ -65,14 +66,27 @@ class ReadActivity : AppCompatActivity() {
                     intent.putExtra("idChapter",list_id_chap[posit-1])
                     startActivity(intent)
                 } else{
-
+                    //Toast het chap moi
+                }
+            }
+            binding.btnLike.setOnClickListener {
+                if(idUser < 0){
+                    Login()
+                }
+                else{
+                    //Xu ly like api
                 }
             }
 
         }
         binding.btnBacktohome.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("idUser",idUser)
             startActivity(intent)
         }
+    }
+    fun Login(){
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
     }
 }

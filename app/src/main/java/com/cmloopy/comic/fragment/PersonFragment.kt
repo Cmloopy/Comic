@@ -23,6 +23,7 @@ class PersonFragment : Fragment() {
 
         return binding.root
     }
+    //Object nhan data tu activity, fragment cha
     fun newInstance(idUser: Int): PersonFragment {
         val fragment = PersonFragment()
         val args = Bundle()

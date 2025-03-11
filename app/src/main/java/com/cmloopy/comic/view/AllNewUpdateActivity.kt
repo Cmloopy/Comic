@@ -29,7 +29,7 @@ class AllNewUpdateActivity : AppCompatActivity() {
                 initRecycle(allNew, idUser)
             }
             catch (e: Exception){
-
+                println(e)
             }
         }
 

@@ -44,6 +44,7 @@ class RankFragment : Fragment() {
             }
         }.attach()
     }
+    //Object nhan data tu activity, fragment cha
     fun newInstance(idUser: Int): RankFragment {
         val fragment = RankFragment()
         val args = Bundle()
