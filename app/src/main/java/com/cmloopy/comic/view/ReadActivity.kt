@@ -59,6 +59,11 @@ class ReadActivity : AppCompatActivity() {
                     //Toast het chap cu
                 }
             }
+
+            binding.btnAllChap.setOnClickListener {
+
+            }
+
             binding.btnNextChap.setOnClickListener {
                 if(posit > 0){
                     val intent = Intent(this@ReadActivity,ReadActivity::class.java)
