@@ -2,9 +2,79 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ReadActivity">
 
+    <LinearLayout
+        android:id="@+id/ln10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btn_backtohome"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="6dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/house"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btn_pre_chap"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="6dp"
+            android:layout_marginStart="65dp"
+            android:layout_gravity="center"
+            android:src="@drawable/previous"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_all_chap"
+            app:cornerRadius="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chapter 11"
+            android:textSize="12sp"
+            android:layout_marginStart="10dp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/btn"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btn_next_chap"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="6dp"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/next"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btn_fail"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:padding="5dp"
+            android:layout_marginStart="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/exclamation"/>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ln10">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/doc_thoi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.cmloopy.comic.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -48,6 +49,9 @@ class ComicDetailActivity : AppCompatActivity() {
                 val chapter = withContext(Dispatchers.IO) {apiChapterService.getChapterByIdComic(idComic = idComic)}
                 val chapterEx = ArrayList(chapter.subList(0,5))
                 val imageRef = storageReference.child(comic[0].imageUrl)
+
+                val list_link_chap = ArrayList(chapter.map { it.urlChapter })
+                val list_id_chap = ArrayList(chapter.map { it.idChapter })
                 imageRef.downloadUrl.addOnSuccessListener { uri ->
                     Picasso.get()
                         .load(uri)
@@ -66,7 +70,7 @@ class ComicDetailActivity : AppCompatActivity() {
 
                 binding.lv3cmn.layoutManager = LinearLayoutManager(this@ComicDetailActivity)
                 binding.lv3cmn.addItemDecoration(DividerItemDecoration(this@ComicDetailActivity, DividerItemDecoration.VERTICAL))
-                binding.lv3cmn.adapter = ListChapAdapter(chapterEx)
+                binding.lv3cmn.adapter = ListChapAdapter(idComic,chapterEx)
 
                 val layoutManager = LinearLayoutManager(this@ComicDetailActivity, LinearLayoutManager.HORIZONTAL, false)
 
@@ -77,6 +81,14 @@ class ComicDetailActivity : AppCompatActivity() {
                 binding.btnListChapAll.setOnClickListener {
                     setUpBottomSheetListChap(idComic, comic[0].sc, chapter)
                 }
+                //Doc tu dau
+                binding.btnDtdau.setOnClickListener {
+                    val intent = Intent(this@ComicDetailActivity, ReadActivity::class.java)
+                    intent.putExtra("idComic", idComic)
+                    intent.putExtra("idChapter",list_id_chap[list_id_chap.size-1])
+                    intent.putExtra("urlChapter",list_link_chap[list_link_chap.size-1])
+                    startActivity(intent)
+                }
             }
             catch (e: Exception){
                 println(e)
@@ -86,9 +98,6 @@ class ComicDetailActivity : AppCompatActivity() {
         //Click
         binding.btnBackPrevious.setOnClickListener {
             onBackPressed()
-        }
-        binding.btnDtdau.setOnClickListener {
-
         }
         binding.btnLikeee.setOnClickListener {
 
@@ -105,7 +114,7 @@ class ComicDetailActivity : AppCompatActivity() {
         val listAll = view.findViewById<RecyclerView>(R.id.rcl_listFullChap)
         listAll.layoutManager = LinearLayoutManager(this)
         listAll.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-        listAll.adapter = ListChapAdapter(chapter)
+        listAll.adapter = ListChapAdapter(idComic,chapter)
         val txtSL = view.findViewById<MaterialTextView>(R.id.txt_capnhat)
         txtSL.text = "Cập nhật đến chap ${slChap}"
         //Setup btn
@@ -114,13 +123,13 @@ class ComicDetailActivity : AppCompatActivity() {
         val chapterNw = chapter
         btnOld.setOnClickListener {
             val chapterRv = ArrayList(chapter.reversed())
-            listAll.adapter = ListChapAdapter(chapterRv)
+            listAll.adapter = ListChapAdapter(idComic,chapterRv)
             listAll.run { adapter?.notifyDataSetChanged() }
             btnOld.setTextColor(resources.getColor(R.color.btn))
             btnNew.setTextColor(resources.getColor(R.color.text2))
         }
         btnNew.setOnClickListener {
-            listAll.adapter = ListChapAdapter(chapterNw)
+            listAll.adapter = ListChapAdapter(idComic,chapterNw)
             listAll.run { adapter?.notifyDataSetChanged() }
             btnNew.setTextColor(resources.getColor(R.color.btn))
             btnOld.setTextColor(resources.getColor(R.color.text2))

@@ -49,12 +49,12 @@ class HomeFragment : Fragment() {
             try {
                 val apiService = RetrofitClient.instance.create(ComicApi::class.java)
 
-                // Gọi API và nhận dữ liệu
+                // Call Api
                 val hotComic = withContext(Dispatchers.IO) { apiService.getComicHot() }
                 val fullComic = withContext(Dispatchers.IO) { apiService.getComicHT() }
                 val newComic = withContext(Dispatchers.IO) { apiService.getComicUpdate() }
 
-                // Cập nhật UI mà không cần runOnUiThread
+                // Cập nhật UI
                 initSlider(hotComic)
                 setUpSlider()
                 callBackSlider()
