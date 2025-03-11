@@ -1,7 +1,7 @@
 package com.cmloopy.comic.view
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +31,7 @@ class ReadActivity : AppCompatActivity() {
             val all_chapter = withContext(Dispatchers.IO) {apiChapterService.getChapterByIdComic(idComic = idComic)}
             val info_chapter = withContext(Dispatchers.IO) {apiChapterService.getChapterById(idChapter = idChapter)}
             val list_id_chap = all_chapter.map { it.idChapter }
+            val posit = list_id_chap.indexOf(idChapter)
 
             binding.btnAllChap.text = info_chapter[0].nameChapter
             //Lay toan bo anh gan vao adapter
@@ -45,10 +46,32 @@ class ReadActivity : AppCompatActivity() {
                     binding.docThoi.adapter = ReadAdapter(fileNames)
 
                 }
-                .addOnFailureListener { exception ->
+                .addOnFailureListener { exception -> }
+            binding.btnPreChap.setOnClickListener {
+                if (posit < list_id_chap.size-1){
+                    val intent = Intent(this@ReadActivity,ReadActivity::class.java)
+                    intent.putExtra("idComic",idComic)
+                    intent.putExtra("idChapter",list_id_chap[posit+1])
+                    startActivity(intent)
+                } else {
 
                 }
-        }
+            }
+            binding.btnNextChap.setOnClickListener {
+                if(posit > 0){
+                    val intent = Intent(this@ReadActivity,ReadActivity::class.java)
+                    intent.putExtra("idComic",idComic)
+                    intent.putExtra("idChapter",list_id_chap[posit-1])
+                    startActivity(intent)
+                } else{
 
+                }
+            }
+
+        }
+        binding.btnBacktohome.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
