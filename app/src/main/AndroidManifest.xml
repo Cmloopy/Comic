@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".MoreIfActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
@@ -47,7 +50,7 @@
 
         <meta-data
             android:name="com.google.android.gms.signin.API_KEY"
-            android:value="@string/web_client_id"/>
+            android:value="@string/web_client_id" />
     </application>
 
 </manifest>

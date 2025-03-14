@@ -14,6 +14,8 @@ import com.cmloopy.comic.adapters.DialogAllChapAdapter
 import com.cmloopy.comic.adapters.ReadAdapter
 import com.cmloopy.comic.data.RetrofitClient
 import com.cmloopy.comic.data.api.ChapterApi
+import com.cmloopy.comic.data.api.ComicApi
+import com.cmloopy.comic.data.api.UserApi
 import com.cmloopy.comic.databinding.ActivityReadBinding
 import com.cmloopy.comic.models.Chapter
 import com.google.firebase.Firebase
@@ -21,6 +23,7 @@ import com.google.firebase.storage.storage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.create
 
 class ReadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReadBinding
@@ -36,12 +39,16 @@ class ReadActivity : AppCompatActivity() {
         idUser = intent.getIntExtra("idUser", -1)
         lifecycleScope.launch {
             val apiChapterService = RetrofitClient.instance.create(ChapterApi::class.java)
-
+            val apiUserService = RetrofitClient.instance.create(UserApi::class.java)
+            val apiComicService = RetrofitClient.instance.create(ComicApi::class.java)
             val all_chapter = withContext(Dispatchers.IO) {apiChapterService.getChapterByIdComic(idComic = idComic)}
             val info_chapter = withContext(Dispatchers.IO) {apiChapterService.getChapterById(idChapter = idChapter)}
             val list_id_chap = all_chapter.map { it.idChapter }
             val posit = list_id_chap.indexOf(idChapter)
-
+            if(idUser > 0) {
+                apiUserService.updateUserView(idUser)
+            }
+            apiComicService.updateViews(idComic)
             binding.btnAllChap.text = info_chapter[0].nameChapter
             //Lay toan bo anh gan vao adapter
             val storageRef = StorageRef.child(info_chapter[0].urlChapter)

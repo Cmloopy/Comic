@@ -6,8 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import com.cmloopy.comic.MoreIfActivity
+import com.cmloopy.comic.data.RetrofitClient
+import com.cmloopy.comic.data.api.UserApi
 import com.cmloopy.comic.databinding.FragmentPersonBinding
 import com.cmloopy.comic.view.LoginActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.create
 
 class PersonFragment : Fragment() {
     private lateinit var _binding: FragmentPersonBinding
@@ -26,6 +35,26 @@ class PersonFragment : Fragment() {
             binding.txtNameUser.setOnClickListener { Login() }
             binding.btnDd.setOnClickListener { Login() }
             binding.btnMoreif.setOnClickListener { Login() }
+        }
+        else{
+            viewLifecycleOwner.lifecycleScope.launch {
+                try {
+                    val apiUserService = RetrofitClient.instance.create(UserApi::class.java)
+                    val user = withContext(Dispatchers.IO) {apiUserService.getUserById(idUser = idUser)}
+                    binding.txtNameUser.text = user[0].nameUser
+                    binding.txtCount.text = user[0].count.toString()
+                    binding.txtChuoi.text = idUser.toString()
+
+                }
+                catch (e: Exception){
+                    Toast.makeText(requireContext(),"${e}",Toast.LENGTH_SHORT).show()
+                }
+            }
+            binding.btnMoreif.setOnClickListener {
+                val intent = Intent(requireContext(),MoreIfActivity::class.java)
+                intent.putExtra("idUser", idUser)
+                startActivity(intent)
+            }
         }
 
         return binding.root

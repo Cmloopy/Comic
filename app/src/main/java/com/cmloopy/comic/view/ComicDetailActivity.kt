@@ -99,7 +99,11 @@ class ComicDetailActivity : AppCompatActivity() {
                     }
                 } else{
                     binding.btnLikeee.setOnClickListener {
-                        //Xu ly like api
+                        lifecycleScope.launch {
+                            apiComicService.updateLikes(idComic)
+                            binding.btnLikeComic.setColorFilter(Color.parseColor("#FF526E"))
+                            binding.txtLikesssss.setTextColor(Color.parseColor("#FF526E"))
+                        }
                     }
                     binding.btnFollow.setOnClickListener {
                         //Xu ly follow api

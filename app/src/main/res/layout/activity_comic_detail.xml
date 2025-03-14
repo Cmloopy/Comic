@@ -302,12 +302,14 @@
             android:layout_gravity="end">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/btn_like_comic"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:src="@drawable/ic_like_non" />
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_likesssss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Like"

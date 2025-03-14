@@ -2,6 +2,7 @@ package com.cmloopy.comic.data.api
 
 import Comic
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ComicApi {
@@ -21,4 +22,9 @@ interface ComicApi {
     suspend fun getComicById(@Path("idComic") idComic: Int): ArrayList<Comic>
     @GET("comic/category/{nameCategory}")
     suspend fun getComicByCategory(@Path("nameCategory") nameCategory: String): ArrayList<Comic>
+    @POST("comic/updateLike/{idComic}")
+    suspend fun updateLikes(@Path("idComic") idComic: Int)
+
+    @POST("comic/updateView/{idComic}")
+    suspend fun updateViews(@Path("idComic") idComic: Int)
 }
