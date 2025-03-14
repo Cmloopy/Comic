@@ -1,11 +1,13 @@
 package com.cmloopy.comic.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cmloopy.comic.databinding.FragmentPersonBinding
+import com.cmloopy.comic.view.LoginActivity
 
 class PersonFragment : Fragment() {
     private lateinit var _binding: FragmentPersonBinding
@@ -20,6 +22,11 @@ class PersonFragment : Fragment() {
         arguments?.let {
             idUser = it.getInt("idUser", -1)
         }
+        if(idUser < 0){
+            binding.txtNameUser.setOnClickListener { Login() }
+            binding.btnDd.setOnClickListener { Login() }
+            binding.btnMoreif.setOnClickListener { Login() }
+        }
 
         return binding.root
     }
@@ -30,5 +37,9 @@ class PersonFragment : Fragment() {
         args.putInt("idUser", idUser)
         fragment.arguments = args
         return fragment
+    }
+    fun Login(){
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        startActivity(intent)
     }
 }

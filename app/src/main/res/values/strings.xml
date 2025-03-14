@@ -43,4 +43,7 @@
     <string name="xem_t_t_c_chapter">Xem tất cả Chapter</string>
     <string name="th_ng_tin_truy_n">Thông tin truyện</string>
     <string name="c_p_nh_t_n_chap">Cập nhật đến chap ---</string>
+    <string name="ng_nh_p_b_ng_google">Đăng nhập bằng Google</string>
+    <string name="ng_nh_p_b_ng_facebook">Đăng nhập bằng Facebook</string>
+    <string name="ho_c">--------------Hoặc--------------</string>
 </resources>

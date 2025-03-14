@@ -117,6 +117,7 @@ class ReadActivity : AppCompatActivity() {
             intent.putExtra("idUser",idUser)
             intent.putExtra("idChapter",selectedItem.idChapter)
             startActivity(intent)
+            dialog.dismiss()
         }
         listGridAllChap.post {
             (listGridAllChap.layoutManager as GridLayoutManager).scrollToPositionWithOffset(posit, 0)
