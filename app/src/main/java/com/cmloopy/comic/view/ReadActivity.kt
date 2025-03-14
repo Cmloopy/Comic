@@ -1,14 +1,21 @@
 package com.cmloopy.comic.view
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.cmloopy.comic.R
+import com.cmloopy.comic.adapters.DialogAllChapAdapter
 import com.cmloopy.comic.adapters.ReadAdapter
 import com.cmloopy.comic.data.RetrofitClient
 import com.cmloopy.comic.data.api.ChapterApi
 import com.cmloopy.comic.databinding.ActivityReadBinding
+import com.cmloopy.comic.models.Chapter
 import com.google.firebase.Firebase
 import com.google.firebase.storage.storage
 import kotlinx.coroutines.Dispatchers
@@ -53,6 +60,7 @@ class ReadActivity : AppCompatActivity() {
                 if (posit < list_id_chap.size-1){
                     val intent = Intent(this@ReadActivity,ReadActivity::class.java)
                     intent.putExtra("idComic",idComic)
+                    intent.putExtra("idUser",idUser)
                     intent.putExtra("idChapter",list_id_chap[posit+1])
                     startActivity(intent)
                 } else {
@@ -61,13 +69,14 @@ class ReadActivity : AppCompatActivity() {
             }
 
             binding.btnAllChap.setOnClickListener {
-
+                ShowDialogAllChap(idComic, all_chapter, posit, info_chapter[0])
             }
 
             binding.btnNextChap.setOnClickListener {
                 if(posit > 0){
                     val intent = Intent(this@ReadActivity,ReadActivity::class.java)
                     intent.putExtra("idComic",idComic)
+                    intent.putExtra("idUser",idUser)
                     intent.putExtra("idChapter",list_id_chap[posit-1])
                     startActivity(intent)
                 } else{
@@ -93,5 +102,25 @@ class ReadActivity : AppCompatActivity() {
     fun Login(){
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
+    }
+    fun ShowDialogAllChap(idCm: Int, list: ArrayList<Chapter>, posit: Int, i4: Chapter){
+        val dialog = Dialog(this)
+        val view = LayoutInflater.from(this).inflate(R.layout.custom_dialog_all_chapter, null)
+        dialog.setContentView(view)
+
+        val listGridAllChap = view.findViewById<RecyclerView>(R.id.rcl_choose_chap)
+        val gridLayoutManager = GridLayoutManager(this, 3)
+        listGridAllChap.layoutManager = gridLayoutManager
+        listGridAllChap.adapter = DialogAllChapAdapter(list, posit) {selectedItem ->
+            val intent = Intent(this, ReadActivity::class.java)
+            intent.putExtra("idComic",idCm)
+            intent.putExtra("idUser",idUser)
+            intent.putExtra("idChapter",selectedItem.idChapter)
+            startActivity(intent)
+        }
+        listGridAllChap.post {
+            (listGridAllChap.layoutManager as GridLayoutManager).scrollToPositionWithOffset(posit, 0)
+        }
+        dialog.show()
     }
 }

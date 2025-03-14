@@ -21,7 +21,7 @@
             android:layout_height="32dp"
             android:padding="6dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="4dp"
             android:src="@drawable/house"/>
         <com.google.android.material.imageview.ShapeableImageView
@@ -29,16 +29,16 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:padding="6dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="52dp"
             android:layout_gravity="center"
             android:src="@drawable/previous"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_all_chap"
             app:cornerRadius="5dp"
-            android:layout_width="127dp"
-            android:layout_height="wrap_content"
+            android:layout_width="125dp"
+            android:layout_height="40dp"
             android:text="Chapter 11123"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:layout_marginStart="10dp"
             android:textAllCaps="false"
             android:backgroundTint="@color/btn"/>
