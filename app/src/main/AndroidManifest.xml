@@ -44,6 +44,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.signin.API_KEY"
+            android:value="@string/web_client_id"/>
     </application>
 
 </manifest>
