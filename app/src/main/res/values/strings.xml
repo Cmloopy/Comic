@@ -47,4 +47,9 @@
     <string name="ng_nh_p_b_ng_facebook">Đăng nhập bằng Facebook</string>
     <string name="ho_c">--------------Hoặc--------------</string>
     <string name="web_client_id">349914867765-t1dnido2nk3fpk083u0rjhbm4oe9qkl7.apps.googleusercontent.com</string>
+    <string name="username">Username...</string>
+    <string name="t_i_kho_n">Tài Khoản</string>
+    <string name="m_t_kh_u">Mật khẩu</string>
+    <string name="password">Password...</string>
+    <string name="ng_k">Đăng kí</string>
 </resources>

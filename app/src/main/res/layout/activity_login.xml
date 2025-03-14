@@ -50,71 +50,108 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
+        android:layout_marginStart="60dp"
         app:layout_constraintTop_toBottomOf="@+id/materialTextView4">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login_google"
-            android:layout_width="300dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:backgroundTint="@color/btn"
-            android:drawableLeft="@drawable/google"
-            android:padding="10dp"
-            android:text="@string/ng_nh_p_b_ng_google"
-            android:textAllCaps="false"
-            app:cornerRadius="20dp" />
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="@string/t_i_kho_n"
+            android:textColor="@color/text1_1"
+            android:textSize="12sp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login_facebook"
-            android:layout_width="300dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:backgroundTint="#1877f2"
-            android:drawableLeft="@drawable/communication"
-            android:padding="10dp"
-            android:text="@string/ng_nh_p_b_ng_facebook"
-            android:textAllCaps="false"
-            app:cornerRadius="20dp" />
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="14"
+            android:textSize="15sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:background="@drawable/rounded_edt"
+            android:hint="@string/username" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="@string/m_t_kh_u"
+            android:textColor="@color/text1_1"
+            android:textSize="12sp" />
+
+        <EditText
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:textSize="15sp"
+            android:background="@drawable/rounded_edt"
+            android:layout_marginTop="5dp"
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="14"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton_LG"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/btn"
+        android:text="Đăng Nhập"
+        android:textAllCaps="false"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/materialButton_LG"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/poppinsmedium"
+            android:gravity="center"
+            android:text="---------------Hoặc---------------"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView5"
-        android:layout_width="match_parent"
+        android:id="@+id/materialTextView6"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/ng_k"
+        android:textSize="13sp"
+        android:textColor="@color/btn"
+        android:layout_marginStart="105dp"
+        android:fontFamily="@font/poppinssemibold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  nếu chưa có tài khoản!"
+        android:textSize="13sp"
+        android:textColor="@color/text1_1"
         android:fontFamily="@font/poppinsmedium"
-        android:gravity="center"
-        android:text="@string/ho_c"
-        android:textColor="@color/text2"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView5">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/btn_login_line"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="150dp"
-            android:src="@drawable/line" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/btn_login_whatsapp"
-            android:layout_width="36dp"
-            android:layout_marginStart="20dp"
-            android:layout_height="36dp"
-            android:layout_gravity="center"
-            android:src="@drawable/whatsapp" />
-    </LinearLayout>
+        app:layout_constraintStart_toEndOf="@+id/materialTextView6"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
